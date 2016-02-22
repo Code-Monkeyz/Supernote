@@ -5,9 +5,8 @@
  */
 package Business;
 import Data_Access.*;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import Presentation.*;
+
 
 /**
  *
@@ -18,16 +17,12 @@ public class DeRiche_Supernote {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args){
-        try {
-            UserDBConnect dc = new UserDBConnect();
-            dc.selectDB(1);
-            //dc.insertDB(1, "hello", "hello", "hello", "hello", 1);
-            //dc.deleteDB(1);
-        } catch (SQLException ex) {
-            Logger.getLogger(DeRiche_Supernote.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-    }
+//    public static void main(String[] args){
+//        //UserDBConnect dc = new UserDBConnect();
+//        LoginForm start = new LoginForm();
+//        start.setVisible(true);
+//        
+//        
+//    }
     
 }

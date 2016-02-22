@@ -22,7 +22,35 @@ public class UserDBConnect {
     public final String driver = "com.mysql.jdbc.Driver";
     public final String database = "jdbc:mysql://localhost/DeRiche?user=root";
     
-    public void selectDB(int userID) throws SQLException{
+    public boolean login(String userName, String password){
+        boolean isLoggedIn = false;
+        try {
+            String sql = "Select UserName, Password from User where UserName = ?";
+            Class.forName(driver);
+            Connection connect = DriverManager.getConnection(database);
+            PreparedStatement prepared = connect.prepareStatement(sql);
+            prepared.setString(1, userName);
+            ResultSet result = prepared.executeQuery();
+            ResultSetMetaData meta = result.getMetaData();
+            while(result.next()){
+                String userCheck = result.getString(1);
+                String passCheck = result.getString(2);
+                for(int i = 1; i <= meta.getColumnCount(); i++){
+                    if(userName.equalsIgnoreCase(userCheck) && password.equals(passCheck)){
+                        System.out.println("Login successful");
+                        isLoggedIn = true;
+                        break;
+                    }
+                }
+            }
+            
+        } catch (SQLException | ClassNotFoundException ex) {
+            Logger.getLogger(UserDBConnect.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return isLoggedIn;
+    }
+    
+    public void selectDB(int userID){
         try {
             String sql = "Select * from User where UserID = ?";
             Class.forName(driver);
