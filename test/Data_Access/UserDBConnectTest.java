@@ -111,5 +111,23 @@ public class UserDBConnectTest {
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
+
+    /**
+     * Test of updateDB method, of class UserDBConnect.
+     */
+    @Test
+    public void testUpdateDB() {
+        System.out.println("updateDB");
+        int userID = 2;
+        String userName = "";
+        String pass = "";
+        String firstName = "";
+        String lastName = "";
+        int clearance = 0;
+        UserDBConnect instance = new UserDBConnect();
+        instance.updateDB(userID, userName, pass, firstName, lastName, clearance);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
     
 }

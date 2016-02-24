@@ -161,4 +161,29 @@ public class UserDBConnect {
             Logger.getLogger(UserDBConnect.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    // I am trying to do an updateDB don't know if it will work
+    //by bonnie this is not working correct for the UserDBConnectTest
+    
+    public void updateDB(int userID, String userName, String pass, String firstName,
+            String lastName, int clearance){
+        try {
+            //String sql = "update into User values (?,?,?,?,?,?) where UserID=?";
+            String sql = "update User set UserName=?,Password=?,FirstName=?,LastName=?,Clearance=? where UserID =?";
+            Class.forName(driver);
+            Connection connect = DriverManager.getConnection(database);
+            PreparedStatement prepared = connect.prepareStatement(sql);
+            prepared.setString(1, userName);
+            prepared.setString(2, pass);
+            prepared.setString(3, firstName);
+            prepared.setString(4, lastName);
+            prepared.setInt(5, clearance);
+            prepared.setInt(6, userID);
+            prepared.execute();
+            connect.close();
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(UserDBConnect.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
 }
