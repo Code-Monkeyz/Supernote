@@ -1,3 +1,5 @@
+package Presentation;
+
 
 import Business.User;
 import Data_Access.UserDBConnect;
@@ -134,6 +136,12 @@ public class LoginForm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Instantiates the UserDBConnect class to authenticate information in 
+     *<code>userNameTxtFd</code> and <code>passwordTxtFd</code>.
+     * If this object's login method returns true then the user has been authenticated and will be logged in.
+     * @param evt GUI event
+     */
     private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtnActionPerformed
         String userName = userNameTxtFd.getText();
         String password = passwordTxtFd.getText();
@@ -146,6 +154,10 @@ public class LoginForm extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_loginBtnActionPerformed
 
+    /**
+     * Clears the <code>userNameTxtFd</code> and <code>passwordTxtFd</code> text fields.
+     * @param evt 
+     */
     private void clearBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearBtnActionPerformed
         userNameTxtFd.setText(null);
         passwordTxtFd.setText(null);
