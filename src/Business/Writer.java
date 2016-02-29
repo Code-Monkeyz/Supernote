@@ -101,46 +101,28 @@ public class Writer implements User{
         this.clearance = clearance;
     }
 
-    /**
-     *
-     */
     @Override
     public void login() {
 
     }
 
-    /**
-     *
-     */
     @Override
     public void logout() {
 
     }
     
-    /**
-     *
-     */
     public void updatePass(){
         
     }
     
-    /**
-     *
-     */
     public void editRejectedNote(){
         
     }
     
-    /**
-     *
-     */
     public void submitNote(){
         
     }
     
-    /**
-     *
-     */
     public void addComment(){
         
     }

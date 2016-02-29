@@ -101,25 +101,16 @@ public class Auditor implements User{
         this.clearance = clearance;
     }
 
-    /**
-     *
-     */
     @Override
     public void login() {
 
     }
 
-    /**
-     *
-     */
     @Override
     public void logout() {
 
     }
     
-    /**
-     *
-     */
     public void viewParticpant(){
         
     }
