@@ -6,6 +6,7 @@
 package Business;
 import Data_Access.*;
 import Presentation.*;
+import java.sql.SQLException;
 
 
 /**
@@ -16,13 +17,17 @@ public class DeRiche_Supernote {
 
     /**
      * @param args the command line arguments
+     * @throws java.sql.SQLException
+     * @throws java.lang.ClassNotFoundException
      */
-//    public static void main(String[] args){
-//        //UserDBConnect dc = new UserDBConnect();
-//        LoginForm start = new LoginForm();
-//        start.setVisible(true);
-//        
-//        
-//    }
+    public static void main(String[] args) throws SQLException, ClassNotFoundException{
+        UserDBConnect dc = new UserDBConnect();
+        //dc.insertUser("","","","","");
+        //dc.select("User");
+        LoginForm start = new LoginForm();
+        start.setVisible(true);
+        
+        
+    }
     
 }

@@ -1,6 +1,7 @@
 package Presentation;
 
  
+import Business.UserLogic;
 import Business.User;
 import Data_Access.UserDBConnect;
 import java.sql.SQLException;
@@ -141,17 +142,21 @@ public class LoginForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtnActionPerformed
-        String userName = userNameTxtFd.getText();
-        String password = passwordTxtFd.getText();
-        UserDBConnect db = new UserDBConnect();
-        if(db.login(userName, password) == true){
-            this.dispose();
-            AdminForm admin = new AdminForm();
-            admin.setVisible(true);
+        try {
+            UserLogic log = new UserLogic();
+            ;
+            if(log.isValid(userNameTxtFd.getText(), passwordTxtFd.getText()) == true){
+                this.dispose();
+                AdminForm admin = new AdminForm();
+                admin.setVisible(true);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(LoginForm.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(LoginForm.class.getName()).log(Level.SEVERE, null, ex);
         }
-        else{
-            System.out.println("Fail");
-        }
+
+
     }//GEN-LAST:event_loginBtnActionPerformed
 
     private void clearBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearBtnActionPerformed

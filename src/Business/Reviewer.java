@@ -101,32 +101,53 @@ public class Reviewer implements User{
         this.clearance = clearance;
     }
     
+    /**
+     *
+     */
     @Override
     public void login() {
 
     }
 
+    /**
+     *
+     */
     @Override
     public void logout() {
 
     }
     
+    /**
+     *
+     */
     public void updatePass(){
         
     }
     
+    /**
+     *
+     */
     public void editNote(){
         
     }
     
+    /**
+     *
+     */
     public void acceptNote(){
         
     }
     
+    /**
+     *
+     */
     public void rejectNote(){
         
     }
     
+    /**
+     *
+     */
     public void addComment(){
         
     }

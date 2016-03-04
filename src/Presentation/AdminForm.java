@@ -5,6 +5,14 @@
  */
 package Presentation;
 
+import Business.UserLogic;
+import Data_Access.UserDBConnect;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author taylorsmith
@@ -14,12 +22,22 @@ public class AdminForm extends javax.swing.JFrame {
     /**
      * Creates new form AdminForm
      */
-    public AdminForm() {
-        initComponents();
-        setLocationRelativeTo(null);
-        dialog_downloadFile.setLocationRelativeTo(null);
-        dialog_uploadFile.setLocationRelativeTo(null);
-        dialog_submitNote.setLocationRelativeTo(null);
+    public AdminForm(){
+        
+            initComponents();
+            setLocationRelativeTo(null);
+            dialog_downloadFile.setLocationRelativeTo(null);
+            dialog_uploadFile.setLocationRelativeTo(null);
+            dialog_submitNote.setLocationRelativeTo(null);
+            UserDBConnect uc = new UserDBConnect();
+        try {
+            populateComboSelectUser(UserDBConnect.populateUser());
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminForm.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(AdminForm.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            
     }
 
     /**
@@ -60,7 +78,7 @@ public class AdminForm extends javax.swing.JFrame {
         btn_sortByUser = new javax.swing.JButton();
         btn_sortByParticipant = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        list_selectNoteToReview = new javax.swing.JList<>();
+        list_selectNoteToReview = new javax.swing.JList<String>();
         jScrollPane2 = new javax.swing.JScrollPane();
         txt_noteToBeReviewed = new javax.swing.JTextArea();
         lbl_noteToBeReviewed = new javax.swing.JLabel();
@@ -68,7 +86,7 @@ public class AdminForm extends javax.swing.JFrame {
         btn_rejectNote = new javax.swing.JButton();
         btn_editNote = new javax.swing.JButton();
         jScrollPane6 = new javax.swing.JScrollPane();
-        list_previousNotes = new javax.swing.JList<>();
+        list_previousNotes = new javax.swing.JList<String>();
         lbl_previousNotes = new javax.swing.JLabel();
         panel_participants = new javax.swing.JPanel();
         lbl_participantName = new javax.swing.JLabel();
@@ -78,15 +96,15 @@ public class AdminForm extends javax.swing.JFrame {
         btn_addParticipant = new javax.swing.JButton();
         btn_updateParticipant = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
-        combo_participantSelect = new javax.swing.JComboBox<>();
+        combo_participantSelect = new javax.swing.JComboBox<String>();
         txt_participantID = new javax.swing.JTextField();
         txt_participantFirstName = new javax.swing.JTextField();
         txt_participantLastName = new javax.swing.JTextField();
-        combo_selectDCP = new javax.swing.JComboBox<>();
+        combo_selectDCP = new javax.swing.JComboBox<String>();
         check_medicaid = new javax.swing.JCheckBox();
         check_selfPay = new javax.swing.JCheckBox();
         panel_participantGoals = new javax.swing.JPanel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBox1 = new javax.swing.JComboBox<String>();
         jScrollPane7 = new javax.swing.JScrollPane();
         txt_goalDescription = new javax.swing.JTextArea();
         jScrollPane8 = new javax.swing.JScrollPane();
@@ -96,7 +114,7 @@ public class AdminForm extends javax.swing.JFrame {
         lbl_insurance = new javax.swing.JLabel();
         panel_users = new javax.swing.JPanel();
         btn_newUser = new javax.swing.JButton();
-        combo_selectUser = new javax.swing.JComboBox<>();
+        combo_selectUser = new javax.swing.JComboBox<String>();
         txt_userID = new javax.swing.JTextField();
         lbl_userID = new javax.swing.JLabel();
         lbl_userPass = new javax.swing.JLabel();
@@ -106,7 +124,7 @@ public class AdminForm extends javax.swing.JFrame {
         lbl_userFirstName = new javax.swing.JLabel();
         lbl_userLastName = new javax.swing.JLabel();
         lbl_userLevel = new javax.swing.JLabel();
-        combo_userLevel = new javax.swing.JComboBox<>();
+        combo_userLevel = new javax.swing.JComboBox<String>();
         btn_viewUser = new javax.swing.JButton();
         btn_deleteUser = new javax.swing.JButton();
         btn_updateUser = new javax.swing.JButton();
@@ -117,32 +135,32 @@ public class AdminForm extends javax.swing.JFrame {
         txt_goalDescription1 = new javax.swing.JTextArea();
         radio_goal1Yes = new javax.swing.JRadioButton();
         radio_goal1No = new javax.swing.JRadioButton();
-        combo_promptingLevel1 = new javax.swing.JComboBox<>();
+        combo_promptingLevel1 = new javax.swing.JComboBox<String>();
         panel_goal02 = new javax.swing.JPanel();
         jsp_goalDescription2 = new javax.swing.JScrollPane();
         txt_goalDescription2 = new javax.swing.JTextArea();
         radio_goal2Yes = new javax.swing.JRadioButton();
         radio_goal2No = new javax.swing.JRadioButton();
-        combo_promptingLevel2 = new javax.swing.JComboBox<>();
+        combo_promptingLevel2 = new javax.swing.JComboBox<String>();
         panel_goal03 = new javax.swing.JPanel();
         jsp_goalDescription3 = new javax.swing.JScrollPane();
         txt_goalDescription3 = new javax.swing.JTextArea();
         radio_goal3No = new javax.swing.JRadioButton();
         radio_goal3Yes = new javax.swing.JRadioButton();
-        combo_promptingLevel3 = new javax.swing.JComboBox<>();
+        combo_promptingLevel3 = new javax.swing.JComboBox<String>();
         panel_goal04 = new javax.swing.JPanel();
         jsp_goalDescription4 = new javax.swing.JScrollPane();
         txt_goalDescription4 = new javax.swing.JTextArea();
         radio_goal4Yes = new javax.swing.JRadioButton();
         radio_goal4No = new javax.swing.JRadioButton();
-        combo_promptingLevel4 = new javax.swing.JComboBox<>();
+        combo_promptingLevel4 = new javax.swing.JComboBox<String>();
         panel_goal05 = new javax.swing.JPanel();
         jsp_goalDescription5 = new javax.swing.JScrollPane();
         txt_goalDescription5 = new javax.swing.JTextArea();
         radio_goal5Yes = new javax.swing.JRadioButton();
         radio_goal5No = new javax.swing.JRadioButton();
-        combo_promptingLevel5 = new javax.swing.JComboBox<>();
-        combo_noteChooseParticipant = new javax.swing.JComboBox<>();
+        combo_promptingLevel5 = new javax.swing.JComboBox<String>();
+        combo_noteChooseParticipant = new javax.swing.JComboBox<String>();
         lbl_noteChooseParticipant = new javax.swing.JLabel();
         PLACEHOLDER_date = new javax.swing.JTextField();
         btn_appendGoal1 = new javax.swing.JButton();
@@ -165,7 +183,7 @@ public class AdminForm extends javax.swing.JFrame {
         pass_enterNewPass = new javax.swing.JPasswordField();
         pass_confirmNewPass = new javax.swing.JPasswordField();
         panel_mySavedNotes = new javax.swing.JPanel();
-        combo_selectNoteToOpen = new javax.swing.JComboBox<>();
+        combo_selectNoteToOpen = new javax.swing.JComboBox<String>();
         lbl_selectNoteToOpen = new javax.swing.JLabel();
         btn_openNote = new javax.swing.JButton();
         btn_deleteNote = new javax.swing.JButton();
@@ -197,8 +215,6 @@ public class AdminForm extends javax.swing.JFrame {
 
         dialog_downloadFile.setTitle("Download File");
         dialog_downloadFile.setMinimumSize(new java.awt.Dimension(562, 430));
-        dialog_downloadFile.setPreferredSize(new java.awt.Dimension(562, 430));
-        dialog_downloadFile.setSize(new java.awt.Dimension(562, 430));
 
         javax.swing.GroupLayout dialog_downloadFileLayout = new javax.swing.GroupLayout(dialog_downloadFile.getContentPane());
         dialog_downloadFile.getContentPane().setLayout(dialog_downloadFileLayout);
@@ -217,9 +233,7 @@ public class AdminForm extends javax.swing.JFrame {
         );
 
         dialog_submitNote.setTitle("Confirm Note Submission");
-        dialog_submitNote.setMaximumSize(new java.awt.Dimension(562, 430));
         dialog_submitNote.setMinimumSize(new java.awt.Dimension(562, 430));
-        dialog_submitNote.setPreferredSize(new java.awt.Dimension(562, 430));
 
         btn_submitSubmit.setText("Submit");
 
@@ -337,10 +351,10 @@ public class AdminForm extends javax.swing.JFrame {
         btn_sortByParticipant.setText("Participant");
         btn_sortByParticipant.setToolTipText("Sort notes by participant.");
 
-        list_selectNoteToReview.setModel(new javax.swing.AbstractListModel<String>() {
+        list_selectNoteToReview.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "User name 1, Participant 1", "User name 2, Participant 2" };
             public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+            public Object getElementAt(int i) { return strings[i]; }
         });
         jScrollPane1.setViewportView(list_selectNoteToReview);
 
@@ -366,10 +380,10 @@ public class AdminForm extends javax.swing.JFrame {
         btn_editNote.setText("Edit");
         btn_editNote.setToolTipText("Add the comments you've written below to the accepted or rejected note.");
 
-        list_previousNotes.setModel(new javax.swing.AbstractListModel<String>() {
+        list_previousNotes.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Accepted Note 1", "Accepted Note 2", " " };
             public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+            public Object getElementAt(int i) { return strings[i]; }
         });
         jScrollPane6.setViewportView(list_previousNotes);
 
@@ -461,9 +475,9 @@ public class AdminForm extends javax.swing.JFrame {
         btn_updateParticipant.setText("Update Participant");
         btn_updateParticipant.setToolTipText("Update the values of a selected participant.");
 
-        combo_participantSelect.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select A Participant", "Participant 1", "Participant 2", "Participant 3" }));
+        combo_participantSelect.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select A Participant", "Participant 1", "Participant 2", "Participant 3" }));
 
-        combo_selectDCP.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select DCP", "-", "-", "-", "-", "-" }));
+        combo_selectDCP.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select DCP", "-", "-", "-", "-", "-" }));
 
         check_medicaid.setText("Medicaid");
 
@@ -506,7 +520,7 @@ public class AdminForm extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Goal 1", "Goal 2", "Goal 3", "Goal 4", "Goal 5" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Goal 1", "Goal 2", "Goal 3", "Goal 4", "Goal 5" }));
 
         txt_goalDescription.setColumns(20);
         txt_goalDescription.setRows(5);
@@ -620,9 +634,19 @@ public class AdminForm extends javax.swing.JFrame {
                 btn_newUserMouseClicked(evt);
             }
         });
+        btn_newUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_newUserActionPerformed(evt);
+            }
+        });
 
-        combo_selectUser.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select User Or Create New", "User 1", "User 2", "User 3" }));
+        combo_selectUser.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select User Or Create New" }));
         combo_selectUser.setToolTipText("");
+        combo_selectUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                combo_selectUserActionPerformed(evt);
+            }
+        });
 
         lbl_userID.setText("User ID:");
 
@@ -634,16 +658,26 @@ public class AdminForm extends javax.swing.JFrame {
 
         lbl_userLevel.setText("User Level:");
 
-        combo_userLevel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select A User Level", "Admin", "Employee", "Reviewer" }));
+        combo_userLevel.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select A User Level", "Admin", "Employee", "Reviewer" }));
 
         btn_viewUser.setText("View");
         btn_viewUser.setToolTipText("Display the attributes of the selected user.");
 
         btn_deleteUser.setText("Delete");
         btn_deleteUser.setToolTipText("Delete the selected user.");
+        btn_deleteUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_deleteUserActionPerformed(evt);
+            }
+        });
 
         btn_updateUser.setText("Update");
         btn_updateUser.setToolTipText("Update the properties of the selected user.");
+        btn_updateUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_updateUserActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panel_usersLayout = new javax.swing.GroupLayout(panel_users);
         panel_users.setLayout(panel_usersLayout);
@@ -734,7 +768,7 @@ public class AdminForm extends javax.swing.JFrame {
         radio_goal1No.setText("No");
         radio_goal1No.setToolTipText("Goal 1 accomplished today?");
 
-        combo_promptingLevel1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6" }));
+        combo_promptingLevel1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6" }));
         combo_promptingLevel1.setToolTipText("Select prompting level for goal 1.");
 
         javax.swing.GroupLayout panel_goal01Layout = new javax.swing.GroupLayout(panel_goal01);
@@ -784,7 +818,7 @@ public class AdminForm extends javax.swing.JFrame {
         radio_goal2No.setText("No");
         radio_goal2No.setToolTipText("Goal 2 accomplished today?");
 
-        combo_promptingLevel2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6" }));
+        combo_promptingLevel2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6" }));
         combo_promptingLevel2.setToolTipText("Select prompting level for goal 2.");
 
         javax.swing.GroupLayout panel_goal02Layout = new javax.swing.GroupLayout(panel_goal02);
@@ -835,7 +869,7 @@ public class AdminForm extends javax.swing.JFrame {
         radio_goal3Yes.setText("Yes");
         radio_goal3Yes.setToolTipText("Goal 3 accomplished today?");
 
-        combo_promptingLevel3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6" }));
+        combo_promptingLevel3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6" }));
         combo_promptingLevel3.setToolTipText("Select prompting level for goal 3.");
 
         javax.swing.GroupLayout panel_goal03Layout = new javax.swing.GroupLayout(panel_goal03);
@@ -885,7 +919,7 @@ public class AdminForm extends javax.swing.JFrame {
         radio_goal4No.setText("No");
         radio_goal4No.setToolTipText("Goal 4 accomplished today?");
 
-        combo_promptingLevel4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6" }));
+        combo_promptingLevel4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6" }));
         combo_promptingLevel4.setToolTipText("Select prompting level for goal 4.");
 
         javax.swing.GroupLayout panel_goal04Layout = new javax.swing.GroupLayout(panel_goal04);
@@ -934,7 +968,7 @@ public class AdminForm extends javax.swing.JFrame {
         radio_goal5No.setText("No");
         radio_goal5No.setToolTipText("Goal 5 accomplished today?");
 
-        combo_promptingLevel5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6" }));
+        combo_promptingLevel5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6" }));
         combo_promptingLevel5.setToolTipText("Select prompting level for goal 5.");
 
         javax.swing.GroupLayout panel_goal05Layout = new javax.swing.GroupLayout(panel_goal05);
@@ -1005,7 +1039,7 @@ public class AdminForm extends javax.swing.JFrame {
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
-        combo_noteChooseParticipant.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "No participant selected.", "-", "-", "-", "-", "-" }));
+        combo_noteChooseParticipant.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "No participant selected.", "-", "-", "-", "-", "-" }));
         combo_noteChooseParticipant.setToolTipText("Choose the participant your note will be about.");
 
         lbl_noteChooseParticipant.setText("Participant:");
@@ -1176,7 +1210,7 @@ public class AdminForm extends javax.swing.JFrame {
 
         panel_mySavedNotes.setBorder(javax.swing.BorderFactory.createTitledBorder("My Notes"));
 
-        combo_selectNoteToOpen.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Saved Notes...", " " }));
+        combo_selectNoteToOpen.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Saved Notes...", " " }));
 
         lbl_selectNoteToOpen.setText("Select a note to continue work on.");
 
@@ -1344,6 +1378,72 @@ public class AdminForm extends javax.swing.JFrame {
         dialog_addComments.show();
     }//GEN-LAST:event_btn_rejectNoteMouseClicked
 
+    private void btn_newUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_newUserActionPerformed
+        try {
+            UserLogic user = new UserLogic();
+            UserDBConnect uc = new UserDBConnect();
+            user.insertUser(txt_userID.getText(), txt_userPass.getText(),
+                    txt_userFirstName.getText(), txt_userLastName.getText(), (String) combo_userLevel.getSelectedItem());
+            populateComboSelectUser(uc.populateUser());
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminForm.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(AdminForm.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btn_newUserActionPerformed
+
+    private void btn_deleteUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_deleteUserActionPerformed
+        try {
+            UserDBConnect uc = new UserDBConnect();
+            uc.deleteUser(txt_userID.getText());
+            populateComboSelectUser(uc.populateUser());
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(AdminForm.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminForm.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btn_deleteUserActionPerformed
+
+    private void combo_selectUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combo_selectUserActionPerformed
+        try {
+            String[] array = new String[5];
+            UserLogic ul = new UserLogic();
+            array = ul.selectUser((String) combo_selectUser.getSelectedItem());
+            
+            if(array != null){
+                txt_userID.setText(array[1]);
+                txt_userPass.setText(array[2]);
+                txt_userFirstName.setText(array[3]);
+                txt_userLastName.setText(array[4]);
+                combo_userLevel.setSelectedItem(array[5]);
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(AdminForm.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminForm.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ArrayIndexOutOfBoundsException ex){
+            System.err.println("UserSelect in the class UserDBConnect generates the out of bounds exception when the program is initially run. \n"
+                    + "The error also occurs when the combo box has the default option selected \n"
+                    + "The error is NOT critical and does not interfere with the program's intented functions \n"
+                    + "Since it is negligible it CAN be ignored, but it should be rectified anyway. -Triston Gregoire");
+            Logger.getLogger(AdminForm.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_combo_selectUserActionPerformed
+
+    private void btn_updateUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_updateUserActionPerformed
+        try {
+            UserDBConnect uc = new UserDBConnect();
+            UserLogic ul = new UserLogic();
+            ul.updateUser(txt_userID.getText(), txt_userPass.getText(), txt_userFirstName.getText(),
+                    txt_userLastName.getText(), combo_userLevel.getSelectedItem(), combo_selectUser.getSelectedItem());
+            populateComboSelectUser(UserDBConnect.populateUser());
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminForm.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(AdminForm.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btn_updateUserActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1377,6 +1477,35 @@ public class AdminForm extends javax.swing.JFrame {
                 new AdminForm().setVisible(true);
             }
         });
+    }
+    
+    public void populateComboSelectUser(ArrayList list){
+        try {
+            combo_selectUser.removeAllItems();
+            combo_selectUser.addItem("Select User Or Create New");
+            Object[] userArray = UserDBConnect.populateUser().toArray();
+            System.out.println(userArray.length);
+            String user;
+            for(int i = 0; i < userArray.length; i++){
+                user = (String) userArray[i];
+                String[] array = user.split("-");
+                System.out.println(Arrays.toString(array));
+                String[] comboBoxArr = new String[3];
+                comboBoxArr = user.split("-");
+                String output = "";
+                for(int u = 0; u < comboBoxArr.length; u++){
+                    if(u != 1 && u != 2 && u != 4){
+                        output += comboBoxArr[u] + " ";
+                    }
+                }
+                
+                combo_selectUser.addItem(output);
+            }
+                    } catch (SQLException ex) {
+            Logger.getLogger(AdminForm.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(AdminForm.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
