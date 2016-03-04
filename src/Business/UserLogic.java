@@ -14,6 +14,15 @@ import java.util.Arrays;
  * @author Triston_Gregoire
  */
 public class UserLogic {
+
+    /**
+     *
+     * @param userName
+     * @param password
+     * @return
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     public boolean isValid(String userName, String password) throws SQLException, ClassNotFoundException{
         boolean result = false;
         UserDBConnect uc = new UserDBConnect();
@@ -28,6 +37,14 @@ public class UserLogic {
         return result;
     }
     
+    /**
+     *
+     * @param username
+     * @return
+     * @throws ClassNotFoundException
+     * @throws ArrayIndexOutOfBoundsException
+     * @throws SQLException
+     */
     public String[] selectUser(String username) throws ClassNotFoundException,ArrayIndexOutOfBoundsException, SQLException{
         UserDBConnect uc = new UserDBConnect();
         String result = uc.UserSelect(username);
@@ -43,14 +60,35 @@ public class UserLogic {
         return array;
     }
     
-    public boolean insertUser(String username, String password, String firstName
+    /**
+     *  
+     * 
+     * @param username
+     * @param password
+     * @param firstName
+     * @param lastName
+     * @param clearance 
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
+    public void insertUser(String username, String password, String firstName
             , String lastName, String clearance) throws SQLException, ClassNotFoundException{
         int modifiedClearance = clearanceCheck(clearance);
         UserDBConnect uc = new UserDBConnect();
         uc.insertUser(username, password, firstName, lastName, modifiedClearance);
-        return false;
     }
     
+    /**
+     *
+     * @param username
+     * @param password
+     * @param firstName
+     * @param lastName
+     * @param clearance
+     * @param oldUsername
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     public void updateUser(String username, String password, String firstName, String lastName, Object clearance, Object oldUsername) throws SQLException, ClassNotFoundException{
         int newClearance = clearanceCheck((String) clearance);
         UserDBConnect uc = new UserDBConnect();
@@ -59,7 +97,7 @@ public class UserLogic {
     }
     
     
-      /**
+     /**
      * Method accepts the user clearance level pulled from GUI and converts it into an integer
      * Integer representation of clearance is used for storing in the database
      * 
@@ -84,6 +122,11 @@ public class UserLogic {
         return newClearance;
     }
     
+    /**
+     *
+     * @param clearance
+     * @return String representation of the user's clearance level to be used in the GUI
+     */
     public String clearanceCheck(int clearance){
         String newClearance = null;
         switch(clearance){

@@ -37,9 +37,7 @@ public class UserDBConnect {
      * @throws java.lang.ClassNotFoundException
      */
     public String login(String userName) throws SQLException, ClassNotFoundException{
-        boolean isLoggedIn = false;
-            //select
-            
+        boolean isLoggedIn = false;            
             String sql = "Select UserName, Password from User where UserName = ?";
             Class.forName(driver);
             Connection connect = DriverManager.getConnection(database);
@@ -49,7 +47,6 @@ public class UserDBConnect {
             ResultSetMetaData meta = result.getMetaData();
             result.next();
             String credentials = result.getString(1) + "-" + result.getString(2);
-            
         return credentials;
     }
 
@@ -82,7 +79,7 @@ public class UserDBConnect {
     }
     
     /**
-     *
+     * Selects user from database and returns a concatenated String.
      * @param name
      * @return
      * @throws ClassNotFoundException
@@ -111,7 +108,7 @@ public class UserDBConnect {
     }
     
     /**
-     *
+     * Deletes entry from database
      * @param userID
      * @throws ClassNotFoundException
      * @throws SQLException
@@ -159,7 +156,7 @@ public class UserDBConnect {
 
     /**
      *
-     * 
+     * Updates entry in the database
      * 
      * @param newUsername
      * @param password

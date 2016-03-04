@@ -42,87 +42,15 @@ public class UserDBConnectTest {
      * Test of login method, of class UserDBConnect.
      */
     @Test
-    public void testLogin() {
+    public void testLogin() throws Exception {
         System.out.println("login");
-        String userName = "tristong";
-        String password = "lol";
-        UserDBConnect instance = new UserDBConnect();
-        boolean expResult = true;
-        boolean result = instance.login(userName, password);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of selectUser method, of class UserDBConnect.
-     */
-    @Test
-    public void testSelectUser() throws Exception {
-        System.out.println("selectUser");
-        ArrayList<String> expResult = null;
-        ArrayList<String> result = UserDBConnect.selectUser();
-        assertNotNull(result);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of selectDB method, of class UserDBConnect.
-     */
-    @Test
-    public void testSelectDB() {
-        System.out.println("selectDB");
-        int userID = 0;
-        UserDBConnect instance = new UserDBConnect();
-        instance.selectDB(userID);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of insertUser method, of class UserDBConnect.
-     */
-    @Test
-    public void testInsertUser() throws Exception {
-        System.out.println("insertUser");
         String userName = "";
-        String pass = "";
-        String firstName = "";
-        String lastName = "";
-        String clearance = "";
         UserDBConnect instance = new UserDBConnect();
-        instance.insertUser(userName, pass, firstName, lastName, clearance);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of deleteDB method, of class UserDBConnect.
-     */
-    @Test
-    public void testDeleteDB() {
-        System.out.println("deleteDB");
-        int userID = 0;
-        UserDBConnect instance = new UserDBConnect();
-        instance.deleteDB(userID);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of clearanceCheck method, of class UserDBConnect.
-     */
-    @Test
-    public void testClearanceCheck() {
-        System.out.println("clearanceCheck");
-        String clearance = "Reviewer";
-        UserDBConnect instance = new UserDBConnect();
-        int expResult = 1;
-        int result = instance.clearanceCheck(clearance);
+        String expResult = "";
+        String result = instance.login(userName);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+        fail("The test case is a prototype.");
     }
 
     /**
@@ -162,6 +90,23 @@ public class UserDBConnectTest {
         String userID = "";
         UserDBConnect instance = new UserDBConnect();
         instance.deleteUser(userID);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of insertUser method, of class UserDBConnect.
+     */
+    @Test
+    public void testInsertUser() throws Exception {
+        System.out.println("insertUser");
+        String userName = "";
+        String pass = "";
+        String firstName = "";
+        String lastName = "";
+        int clearance = 0;
+        UserDBConnect instance = new UserDBConnect();
+        instance.insertUser(userName, pass, firstName, lastName, clearance);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
