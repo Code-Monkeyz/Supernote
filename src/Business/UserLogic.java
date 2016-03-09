@@ -15,10 +15,13 @@ import java.util.Arrays;
  */
 public class UserLogic {
     private String username = null;
+    private String oldUserName = null;
     private String password = null;
+    private String oldPassowrd = null;
     private String firstName = null;
     private String lastName = null;
     private int clearance = -1;
+    public UserDBConnect uc = new UserDBConnect();
 
     /**
      * @return the username
@@ -35,6 +38,20 @@ public class UserLogic {
     }
 
     /**
+     * @return the oldUserName
+     */
+    public String getOldUserName() {
+        return oldUserName;
+    }
+
+    /**
+     * @param oldUserName the oldUserName to set
+     */
+    public void setOldUserName(String oldUserName) {
+        this.oldUserName = oldUserName;
+    }
+
+    /**
      * @return the password
      */
     public String getPassword() {
@@ -46,6 +63,20 @@ public class UserLogic {
      */
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    /**
+     * @return the oldPassowrd
+     */
+    public String getOldPassowrd() {
+        return oldPassowrd;
+    }
+
+    /**
+     * @param oldPassowrd the oldPassowrd to set
+     */
+    public void setOldPassowrd(String oldPassowrd) {
+        this.oldPassowrd = oldPassowrd;
     }
 
     /**
@@ -99,17 +130,15 @@ public class UserLogic {
      * @throws SQLException
      * @throws ClassNotFoundException
      */
-    public boolean isValid(String userName, String password) throws SQLException, ClassNotFoundException{
+    public boolean isValid(String username, String password) throws SQLException, ClassNotFoundException{
         boolean result = false;
-        UserDBConnect uc = new UserDBConnect();
-        String databaseCredentials = uc.login(userName);
-        String[] usernamePassword = databaseCredentials.split("-");
-        if(userName.equalsIgnoreCase(usernamePassword[0]) && password.equals(usernamePassword[1])){
-            result = true;
-        }
-        else{
-            result = false;
-        }
+        UserLogic object1 = new UserLogic();
+        UserLogic object2 = null;
+        object1.setUsername(username);
+        object1.setPassword(password);
+        uc = new UserDBConnect();
+        object2 = uc.login(object1);
+        result = object1.getUsername().equalsIgnoreCase(object2.getUsername()) && object1.getPassword().equals(object2.getPassword());
         return result;
     }
     
@@ -121,19 +150,11 @@ public class UserLogic {
      * @throws ArrayIndexOutOfBoundsException
      * @throws SQLException
      */
-    public String[] selectUser(String username) throws ClassNotFoundException,ArrayIndexOutOfBoundsException, SQLException{
-        UserDBConnect uc = new UserDBConnect();
-        String result = uc.UserSelect(username);
-        String[] array = null;
-        if(result != null){
-            array = new String[5];
-            array = result.split("-");
-            System.out.println(Arrays.toString(array));
-            array[5] = clearanceCheck(Integer.parseInt(array[5]));
-            System.out.println(Arrays.toString(array));
-        }
+    public void select(Object username) throws ClassNotFoundException,ArrayIndexOutOfBoundsException, SQLException{
+        this.setUsername((String) username);
+        uc = new UserDBConnect();
+        uc.userSelect(this);
         
-        return array;
     }
     
     /**
@@ -148,10 +169,15 @@ public class UserLogic {
      * @throws ClassNotFoundException
      */
     public void insertUser(String username, String password, String firstName
-            , String lastName, String clearance) throws SQLException, ClassNotFoundException{
-        int modifiedClearance = clearanceCheck(clearance);
-        UserDBConnect uc = new UserDBConnect();
-        uc.insertUser(username, password, firstName, lastName, modifiedClearance);
+            , String lastName, Object clearance) throws SQLException, ClassNotFoundException{
+        uc = new UserDBConnect();
+        int modifiedClearance = clearanceCheck((String) clearance);
+        this.setUsername(username);
+        this.setPassword(password);
+        this.setFirstName(firstName);
+        this.setLastName(lastName);
+        this.setClearance(modifiedClearance);
+        uc.insertUser(this);
     }
     
     /**
@@ -165,10 +191,10 @@ public class UserLogic {
      * @throws SQLException
      * @throws ClassNotFoundException
      */
-    public void updateUser(String username, String password, String firstName, String lastName, Object clearance, Object oldUsername) throws SQLException, ClassNotFoundException{
-        int newClearance = clearanceCheck((String) clearance);
-        UserDBConnect uc = new UserDBConnect();
-        uc.update(username, password, firstName, lastName, newClearance, (String) oldUsername);
+    public void updateUser() throws SQLException, ClassNotFoundException{
+        uc = new UserDBConnect();
+        uc.update(this);
+       // uc.update(username, password, firstName, lastName, newClearance, (String) oldUsername);
         
     }
     
@@ -189,7 +215,7 @@ public class UserLogic {
             case "Reviewer":
                 newClearance = 1;
                 break;
-            case "Employee":
+            case "DCP":
                 newClearance = 2;
                 break;
             case "Auditor":

@@ -144,10 +144,11 @@ public class LoginForm extends javax.swing.JFrame {
     private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtnActionPerformed
         try {
             UserLogic log = new UserLogic();
-            ;
-            if(log.isValid(userNameTxtFd.getText(), passwordTxtFd.getText()) == true){
+            String username = userNameTxtFd.getText();
+            String password = passwordTxtFd.getText();
+            if(log.isValid(username, password) == true){
                 this.dispose();
-                AdminForm admin = new AdminForm();
+                AdminForm admin = new AdminForm(username);
                 admin.setVisible(true);
             }
         } catch (SQLException ex) {

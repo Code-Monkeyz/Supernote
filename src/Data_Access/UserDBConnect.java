@@ -5,6 +5,7 @@
  */
 package Data_Access;
 
+import Business.UserLogic;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -18,6 +19,13 @@ import java.util.ArrayList;
  * @author Triston_Gregoire
  */
 public class UserDBConnect {
+    
+    private String username = null;
+    private String password = null;
+    private String firstName = null;
+    private String lastName = null;
+    private int clearance = -1;
+    
 
     /**
      *
@@ -36,18 +44,21 @@ public class UserDBConnect {
      * @throws java.sql.SQLException
      * @throws java.lang.ClassNotFoundException
      */
-    public String login(String userName) throws SQLException, ClassNotFoundException{
-        boolean isLoggedIn = false;            
+    public UserLogic login(UserLogic object) throws SQLException, ClassNotFoundException{
+        boolean isLoggedIn = false;  
+            UserLogic obj = new UserLogic();
             String sql = "Select UserName, Password from User where UserName = ?";
             Class.forName(driver);
             Connection connect = DriverManager.getConnection(database);
             PreparedStatement prepared = connect.prepareStatement(sql);
-            prepared.setString(1, userName);
+            prepared.setString(1, object.getUsername());
             ResultSet result = prepared.executeQuery();
             ResultSetMetaData meta = result.getMetaData();
             result.next();
+            obj.setUsername(result.getString(1));
+            obj.setPassword(result.getString(2));
             String credentials = result.getString(1) + "-" + result.getString(2);
-        return credentials;
+        return obj;
     }
 
     /**
@@ -85,26 +96,33 @@ public class UserDBConnect {
      * @throws ClassNotFoundException
      * @throws SQLException
      */
-    public String UserSelect(String name) throws ClassNotFoundException, SQLException{
+    public Object userSelect(UserLogic object) throws ClassNotFoundException, SQLException{
         String sql = "Select * from User where UserName = ?";
+        
+        UserLogic ul = object;
+        
         Class.forName(driver);
         Connection connect = DriverManager.getConnection(database);
         PreparedStatement prepared = connect.prepareStatement(sql);
-        prepared.setString(1, name);
+        prepared.setString(1, ul.getUsername());
         ResultSet result = prepared.executeQuery();
+        
+        
         String rs = "";
         
         if(!result.isBeforeFirst()){
-            rs = null;
+                rs = null;
         }
         else{
             result.next();
-            rs = Integer.toString(result.getInt(1)) + "-" + result.getString(2)
-            + "-" + result.getString(3) + "-" + result.getString(4) + "-" + 
-            result.getString(5) + "-" + Integer.toString(result.getInt(6));
+            ul.setUsername(result.getString(2));
+            ul.setPassword(result.getString(3));
+            ul.setFirstName(result.getString(4));
+            ul.setLastName(result.getString(5));
+            ul.setClearance(result.getInt(6));
         }
         
-        return rs;
+        return ul;
     }
     
     /**
@@ -129,6 +147,7 @@ public class UserDBConnect {
     /**
      * Inserts information into the User table of the database
      * 
+     * @param object
      * @param userName Username for the user being entered into the system
      * @param pass Password for the username being entered into the system
      * @param firstName First Name for the user being entered into the system
@@ -137,19 +156,18 @@ public class UserDBConnect {
      * @throws java.sql.SQLException
      * @throws java.lang.ClassNotFoundException
      */
-    public void insertUser(String userName, String pass, String firstName,
-            String lastName, int clearance) throws SQLException, ClassNotFoundException{
+    public void insertUser(UserLogic object) throws SQLException, ClassNotFoundException{
         //ArrayList <String> list = populateUser();
         String sql = "Insert into User (UserName, PASSWORD, FirstName, LastName, Clearance)"
                 + "values (?,?,?,?,?)";
         Class.forName(driver);
         Connection connect = DriverManager.getConnection(database);
         PreparedStatement prepared = connect.prepareStatement(sql);
-        prepared.setString(1, userName);
-        prepared.setString(2, pass);
-        prepared.setString(3, firstName);
-        prepared.setString(4, lastName);
-        prepared.setInt(5, clearance);
+        prepared.setString(1, object.getUsername());
+        prepared.setString(2, object.getPassword());
+        prepared.setString(3, object.getFirstName());
+        prepared.setString(4, object.getLastName());
+        prepared.setInt(5, object.getClearance());
         prepared.execute();
         connect.close();
     }  
@@ -167,18 +185,18 @@ public class UserDBConnect {
      * @throws SQLException
      * @throws ClassNotFoundException
      */
-    public void update(String newUsername, String password, String firstName, String lastName, int clearance, String oldUsername) throws SQLException, ClassNotFoundException{
+    public void update(UserLogic object) throws SQLException, ClassNotFoundException{
         String sql = "update user set UserName = ?, Password = ?, FirstName = ?,"
                 + " LastName = ?, Clearance = ? where UserName = ?";
         Class.forName(driver);
         Connection connect = DriverManager.getConnection(database);
         PreparedStatement prepared = connect.prepareStatement(sql);
-        prepared.setString(1, newUsername);
-        prepared.setString(2, password);
-        prepared.setString(3, firstName);
-        prepared.setString(4, lastName);
-        prepared.setInt(5, clearance);
-        prepared.setString(6, oldUsername);
+        prepared.setString(1, object.getUsername());
+        prepared.setString(2, object.getPassword());
+        prepared.setString(3, object.getFirstName());
+        prepared.setString(4, object.getLastName());
+        prepared.setInt(5, object.getClearance());
+        prepared.setString(6, object.getOldUserName());
         prepared.execute();
         connect.close();
     }

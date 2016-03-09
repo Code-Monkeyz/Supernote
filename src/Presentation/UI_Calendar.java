@@ -1,11 +1,9 @@
-package Presentation;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-//package gui;
+package gui;
 
 /**
  *
@@ -13,7 +11,6 @@ package Presentation;
  */
 public class UI_Calendar extends javax.swing.JFrame {
 
-    
     /**
      * Creates new form UI_ProgressNote
      */

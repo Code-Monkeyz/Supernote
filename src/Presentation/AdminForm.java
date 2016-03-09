@@ -5,6 +5,7 @@
  */
 package Presentation;
 
+import Business.Account;
 import Business.UserLogic;
 import Data_Access.UserDBConnect;
 import java.sql.SQLException;
@@ -18,12 +19,15 @@ import java.util.logging.Logger;
  * @author taylorsmith
  */
 public class AdminForm extends javax.swing.JFrame {
+    public static String activeUser = null;
 
     /**
      * Creates new form AdminForm
      */
-    public AdminForm(){
-        
+    
+    
+    public AdminForm(String user){
+            activeUser = user;
             initComponents();
             setLocationRelativeTo(null);
             dialog_downloadFile.setLocationRelativeTo(null);
@@ -419,7 +423,7 @@ public class AdminForm extends javax.swing.JFrame {
                         .addComponent(btn_editNote)
                         .addGap(18, 18, 18)
                         .addComponent(btn_approveNote)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 245, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 213, Short.MAX_VALUE))
                     .addGroup(panel_noteReviewLayout.createSequentialGroup()
                         .addComponent(lbl_noteToBeReviewed)
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -658,10 +662,15 @@ public class AdminForm extends javax.swing.JFrame {
 
         lbl_userLevel.setText("User Level:");
 
-        combo_userLevel.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select A User Level", "Admin", "Employee", "Reviewer" }));
+        combo_userLevel.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select A User Level", "Admin", "DCP", "Reviewer", "Auditor" }));
 
-        btn_viewUser.setText("View");
+        btn_viewUser.setText("Clear");
         btn_viewUser.setToolTipText("Display the attributes of the selected user.");
+        btn_viewUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_viewUserActionPerformed(evt);
+            }
+        });
 
         btn_deleteUser.setText("Delete");
         btn_deleteUser.setToolTipText("Delete the selected user.");
@@ -709,7 +718,7 @@ public class AdminForm extends javax.swing.JFrame {
                         .addComponent(btn_deleteUser)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btn_updateUser, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(293, Short.MAX_VALUE))
+                .addContainerGap(261, Short.MAX_VALUE))
         );
 
         panel_usersLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btn_deleteUser, btn_newUser, btn_updateUser, btn_viewUser});
@@ -739,7 +748,7 @@ public class AdminForm extends javax.swing.JFrame {
                 .addGroup(panel_usersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_userLevel)
                     .addComponent(combo_userLevel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 111, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)
                 .addGroup(panel_usersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_newUser)
                     .addComponent(btn_deleteUser)
@@ -1104,7 +1113,7 @@ public class AdminForm extends javax.swing.JFrame {
                 .addGroup(panel_noteWritingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panel_noteWritingLayout.createSequentialGroup()
                         .addComponent(btn_saveNote)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 172, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 136, Short.MAX_VALUE)
                         .addComponent(btn_submitNote)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(PLACEHOLDER_date, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1159,6 +1168,11 @@ public class AdminForm extends javax.swing.JFrame {
 
         btn_confirmNewPass.setText("Confirm");
         btn_confirmNewPass.setToolTipText("Accept your new password.");
+        btn_confirmNewPass.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_confirmNewPassActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panel_updatePasswordLayout = new javax.swing.GroupLayout(panel_updatePassword);
         panel_updatePassword.setLayout(panel_updatePasswordLayout);
@@ -1265,7 +1279,7 @@ public class AdminForm extends javax.swing.JFrame {
                 .addComponent(panel_updatePassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(42, 42, 42)
                 .addComponent(panel_mySavedNotes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
         panel_myAccountLayout.setVerticalGroup(
             panel_myAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1274,7 +1288,7 @@ public class AdminForm extends javax.swing.JFrame {
                 .addGroup(panel_myAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(panel_mySavedNotes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(panel_updatePassword, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(69, Short.MAX_VALUE))
+                .addContainerGap(63, Short.MAX_VALUE))
         );
 
         tabPane_container.addTab("My Account", panel_myAccount);
@@ -1339,7 +1353,7 @@ public class AdminForm extends javax.swing.JFrame {
         panel_filesLayout.setHorizontalGroup(
             panel_filesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_filesLayout.createSequentialGroup()
-                .addContainerGap(269, Short.MAX_VALUE)
+                .addContainerGap(237, Short.MAX_VALUE)
                 .addComponent(panel_fileManaging, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(213, 213, 213))
         );
@@ -1380,11 +1394,10 @@ public class AdminForm extends javax.swing.JFrame {
 
     private void btn_newUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_newUserActionPerformed
         try {
-            UserLogic user = new UserLogic();
+            UserLogic ul = new UserLogic();
             UserDBConnect uc = new UserDBConnect();
-            user.insertUser(txt_userID.getText(), txt_userPass.getText(),
-                    txt_userFirstName.getText(), txt_userLastName.getText(), (String) combo_userLevel.getSelectedItem());
-            populateComboSelectUser(uc.populateUser());
+            ul.insertUser(txt_userID.getText(), txt_userPass.getText(), txt_userFirstName.getText(), txt_userLastName.getText(), combo_userLevel.getSelectedItem());
+            populateComboSelectUser(UserDBConnect.populateUser());
         } catch (SQLException ex) {
             Logger.getLogger(AdminForm.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
@@ -1394,9 +1407,10 @@ public class AdminForm extends javax.swing.JFrame {
 
     private void btn_deleteUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_deleteUserActionPerformed
         try {
-            UserDBConnect uc = new UserDBConnect();
-            uc.deleteUser(txt_userID.getText());
-            populateComboSelectUser(uc.populateUser());
+            UserLogic ul = new UserLogic();
+            
+            ul.uc.deleteUser(txt_userID.getText());
+            populateComboSelectUser(ul.uc.populateUser());
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(AdminForm.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
@@ -1406,16 +1420,17 @@ public class AdminForm extends javax.swing.JFrame {
 
     private void combo_selectUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combo_selectUserActionPerformed
         try {
-            String[] array = new String[5];
             UserLogic ul = new UserLogic();
-            array = ul.selectUser((String) combo_selectUser.getSelectedItem());
+            ul.select(combo_selectUser.getSelectedItem());
+            String[] array = {ul.getUsername(), ul.getPassword(), ul.getFirstName(), ul.getLastName(), ul.clearanceCheck(ul.getClearance())};
+            System.out.println("User selected: " + (String) combo_selectUser.getSelectedItem());
             
             if(array != null){
-                txt_userID.setText(array[1]);
-                txt_userPass.setText(array[2]);
-                txt_userFirstName.setText(array[3]);
-                txt_userLastName.setText(array[4]);
-                combo_userLevel.setSelectedItem(array[5]);
+                txt_userID.setText(array[0]);
+                txt_userPass.setText(array[1]);
+                txt_userFirstName.setText(array[2]);
+                txt_userLastName.setText(array[3]);
+                combo_userLevel.setSelectedItem(array[4]);
             }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(AdminForm.class.getName()).log(Level.SEVERE, null, ex);
@@ -1432,10 +1447,15 @@ public class AdminForm extends javax.swing.JFrame {
 
     private void btn_updateUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_updateUserActionPerformed
         try {
-            UserDBConnect uc = new UserDBConnect();
             UserLogic ul = new UserLogic();
-            ul.updateUser(txt_userID.getText(), txt_userPass.getText(), txt_userFirstName.getText(),
-                    txt_userLastName.getText(), combo_userLevel.getSelectedItem(), combo_selectUser.getSelectedItem());
+            ul.setUsername(txt_userID.getText());
+            ul.setPassword(txt_userPass.getText());
+            ul.setFirstName(txt_userFirstName.getText());
+            ul.setLastName(txt_userLastName.getText());
+            ul.setClearance( ul.clearanceCheck((String) combo_userLevel.getSelectedItem()));
+            ul.setOldUserName((String) combo_selectUser.getSelectedItem());
+            ul.updateUser();
+
             populateComboSelectUser(UserDBConnect.populateUser());
         } catch (SQLException ex) {
             Logger.getLogger(AdminForm.class.getName()).log(Level.SEVERE, null, ex);
@@ -1443,6 +1463,32 @@ public class AdminForm extends javax.swing.JFrame {
             Logger.getLogger(AdminForm.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btn_updateUserActionPerformed
+
+    private void btn_viewUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_viewUserActionPerformed
+        txt_userID.setText("");
+        txt_userPass.setText("");
+        txt_userFirstName.setText("");
+        txt_userLastName.setText("");
+        combo_userLevel.setSelectedIndex(0);
+        combo_selectUser.setSelectedIndex(0);
+    }//GEN-LAST:event_btn_viewUserActionPerformed
+
+    private void btn_confirmNewPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_confirmNewPassActionPerformed
+        try {
+            Account ac =  new Account();
+//        ac.setOldPassword(pass_enterOldPass.getPassword());
+//        ac.setNewPassword(pass_enterNewPass.getPassword());
+            ac.updateAccount(pass_enterNewPass.getPassword(), pass_enterOldPass.getPassword());
+            
+            
+            
+            pass_confirmNewPass.getPassword();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(AdminForm.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminForm.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btn_confirmNewPassActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1474,7 +1520,7 @@ public class AdminForm extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AdminForm().setVisible(true);
+                new AdminForm(activeUser).setVisible(true);
             }
         });
     }

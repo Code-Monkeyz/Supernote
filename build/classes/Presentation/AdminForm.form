@@ -329,7 +329,7 @@
                               <Component id="btn_editNote" linkSize="12" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="btn_approveNote" linkSize="12" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="245" max="32767" attributes="0"/>
+                              <EmptySpace pref="213" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <Component id="lbl_noteToBeReviewed" min="-2" max="-2" attributes="0"/>
@@ -852,7 +852,7 @@
                               <Component id="btn_updateUser" linkSize="13" min="-2" pref="84" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="293" max="32767" attributes="0"/>
+                      <EmptySpace pref="261" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -886,7 +886,7 @@
                           <Component id="lbl_userLevel" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="combo_userLevel" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="111" max="32767" attributes="0"/>
+                      <EmptySpace pref="103" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="btn_newUser" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btn_deleteUser" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -961,11 +961,12 @@
             <Component class="javax.swing.JComboBox" name="combo_userLevel">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="4">
+                  <StringArray count="5">
                     <StringItem index="0" value="Select A User Level"/>
                     <StringItem index="1" value="Admin"/>
-                    <StringItem index="2" value="Employee"/>
+                    <StringItem index="2" value="DCP"/>
                     <StringItem index="3" value="Reviewer"/>
+                    <StringItem index="4" value="Auditor"/>
                   </StringArray>
                 </Property>
               </Properties>
@@ -975,9 +976,12 @@
             </Component>
             <Component class="javax.swing.JButton" name="btn_viewUser">
               <Properties>
-                <Property name="text" type="java.lang.String" value="View"/>
+                <Property name="text" type="java.lang.String" value="Clear"/>
                 <Property name="toolTipText" type="java.lang.String" value="Display the attributes of the selected user."/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_viewUserActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btn_deleteUser">
               <Properties>
@@ -1039,7 +1043,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <Component id="btn_saveNote" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="172" max="32767" attributes="0"/>
+                              <EmptySpace pref="136" max="32767" attributes="0"/>
                               <Component id="btn_submitNote" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="PLACEHOLDER_date" min="-2" max="-2" attributes="0"/>
@@ -1732,7 +1736,7 @@
                       <Component id="panel_updatePassword" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                       <Component id="panel_mySavedNotes" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="65" max="32767" attributes="0"/>
+                      <EmptySpace pref="33" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1744,7 +1748,7 @@
                           <Component id="panel_mySavedNotes" max="32767" attributes="0"/>
                           <Component id="panel_updatePassword" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="69" max="32767" attributes="0"/>
+                      <EmptySpace pref="63" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1843,6 +1847,9 @@
                     <Property name="text" type="java.lang.String" value="Confirm"/>
                     <Property name="toolTipText" type="java.lang.String" value="Accept your new password."/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_confirmNewPassActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JPasswordField" name="pass_enterOldPass">
                 </Component>
@@ -1949,7 +1956,7 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="269" max="32767" attributes="0"/>
+                      <EmptySpace pref="237" max="32767" attributes="0"/>
                       <Component id="panel_fileManaging" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="213" max="-2" attributes="0"/>
                   </Group>
