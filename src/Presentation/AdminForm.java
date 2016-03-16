@@ -6,6 +6,7 @@
 package Presentation;
 
 import Business.Account;
+import Business.ParticipantLogic;
 import Business.UserLogic;
 import Data_Access.UserDBConnect;
 import java.sql.SQLException;
@@ -19,10 +20,17 @@ import java.util.logging.Logger;
  * @author taylorsmith
  */
 public class AdminForm extends javax.swing.JFrame {
+
+    /**
+     *
+     */
     public static String activeUser = null;
+    ParticipantLogic pl = new ParticipantLogic();
+
 
     /**
      * Creates new form AdminForm
+     * @param user
      */
     
     
@@ -35,6 +43,7 @@ public class AdminForm extends javax.swing.JFrame {
             dialog_submitNote.setLocationRelativeTo(null);
             UserDBConnect uc = new UserDBConnect();
         try {
+            populateComboParticipant(pl.populate());
             populateComboSelectUser(UserDBConnect.populateUser());
         } catch (SQLException ex) {
             Logger.getLogger(AdminForm.class.getName()).log(Level.SEVERE, null, ex);
@@ -107,6 +116,7 @@ public class AdminForm extends javax.swing.JFrame {
         combo_selectDCP = new javax.swing.JComboBox<String>();
         check_medicaid = new javax.swing.JCheckBox();
         check_selfPay = new javax.swing.JCheckBox();
+        check_seizure = new javax.swing.JCheckBox();
         panel_participantGoals = new javax.swing.JPanel();
         jComboBox1 = new javax.swing.JComboBox<String>();
         jScrollPane7 = new javax.swing.JScrollPane();
@@ -140,42 +150,52 @@ public class AdminForm extends javax.swing.JFrame {
         radio_goal1Yes = new javax.swing.JRadioButton();
         radio_goal1No = new javax.swing.JRadioButton();
         combo_promptingLevel1 = new javax.swing.JComboBox<String>();
+        btn_appendGoal1 = new javax.swing.JButton();
         panel_goal02 = new javax.swing.JPanel();
         jsp_goalDescription2 = new javax.swing.JScrollPane();
         txt_goalDescription2 = new javax.swing.JTextArea();
         radio_goal2Yes = new javax.swing.JRadioButton();
         radio_goal2No = new javax.swing.JRadioButton();
         combo_promptingLevel2 = new javax.swing.JComboBox<String>();
+        btn_appendGoal2 = new javax.swing.JButton();
         panel_goal03 = new javax.swing.JPanel();
         jsp_goalDescription3 = new javax.swing.JScrollPane();
         txt_goalDescription3 = new javax.swing.JTextArea();
         radio_goal3No = new javax.swing.JRadioButton();
         radio_goal3Yes = new javax.swing.JRadioButton();
         combo_promptingLevel3 = new javax.swing.JComboBox<String>();
+        btn_appendGoal3 = new javax.swing.JButton();
         panel_goal04 = new javax.swing.JPanel();
         jsp_goalDescription4 = new javax.swing.JScrollPane();
         txt_goalDescription4 = new javax.swing.JTextArea();
         radio_goal4Yes = new javax.swing.JRadioButton();
         radio_goal4No = new javax.swing.JRadioButton();
         combo_promptingLevel4 = new javax.swing.JComboBox<String>();
+        btn_appendGoal4 = new javax.swing.JButton();
         panel_goal05 = new javax.swing.JPanel();
         jsp_goalDescription5 = new javax.swing.JScrollPane();
         txt_goalDescription5 = new javax.swing.JTextArea();
         radio_goal5Yes = new javax.swing.JRadioButton();
         radio_goal5No = new javax.swing.JRadioButton();
         combo_promptingLevel5 = new javax.swing.JComboBox<String>();
+        btn_appendGoal5 = new javax.swing.JButton();
         combo_noteChooseParticipant = new javax.swing.JComboBox<String>();
         lbl_noteChooseParticipant = new javax.swing.JLabel();
         PLACEHOLDER_date = new javax.swing.JTextField();
-        btn_appendGoal1 = new javax.swing.JButton();
-        btn_appendGoal2 = new javax.swing.JButton();
-        btn_appendGoal3 = new javax.swing.JButton();
-        btn_appendGoal4 = new javax.swing.JButton();
-        btn_appendGoal5 = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         txt_noteContent = new javax.swing.JTextArea();
         btn_saveNote = new javax.swing.JButton();
         btn_submitNote = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        check_formAbsence = new javax.swing.JCheckBox();
+        check_formCCA = new javax.swing.JCheckBox();
+        check_formNone = new javax.swing.JCheckBox();
+        check_formSeizure = new javax.swing.JCheckBox();
+        check_formIncident = new javax.swing.JCheckBox();
+        check_formBodyCheck = new javax.swing.JCheckBox();
+        check_formBloodPressure = new javax.swing.JCheckBox();
+        check_formBowelMovement = new javax.swing.JCheckBox();
+        btn_displayCalendar = new javax.swing.JButton();
         panel_myAccount = new javax.swing.JPanel();
         panel_updatePassword = new javax.swing.JPanel();
         lbl_enterOldPassword = new javax.swing.JLabel();
@@ -197,6 +217,13 @@ public class AdminForm extends javax.swing.JFrame {
         lbl_uploadFiles = new javax.swing.JLabel();
         lbl_downloadFiles = new javax.swing.JLabel();
         btn_downloadFiles = new javax.swing.JButton();
+        panel_timeReview = new javax.swing.JPanel();
+        jScrollPane10 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<String>();
+        lbl_listOfTimes = new javax.swing.JLabel();
+        jScrollPane11 = new javax.swing.JScrollPane();
+        jTextArea2 = new javax.swing.JTextArea();
+        lbl_noteLabel = new javax.swing.JLabel();
 
         dialog_uploadFile.setTitle("Upload File");
         dialog_uploadFile.setMinimumSize(new java.awt.Dimension(562, 430));
@@ -342,7 +369,7 @@ public class AdminForm extends javax.swing.JFrame {
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
         tabPane_container.setName(""); // NOI18N
-        tabPane_container.setPreferredSize(new java.awt.Dimension(850, 500));
+        tabPane_container.setPreferredSize(new java.awt.Dimension(980, 600));
 
         lbl_sortNotesBy.setText("Sort By:");
 
@@ -423,7 +450,7 @@ public class AdminForm extends javax.swing.JFrame {
                         .addComponent(btn_editNote)
                         .addGap(18, 18, 18)
                         .addComponent(btn_approveNote)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 213, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 338, Short.MAX_VALUE))
                     .addGroup(panel_noteReviewLayout.createSequentialGroup()
                         .addComponent(lbl_noteToBeReviewed)
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -451,7 +478,7 @@ public class AdminForm extends javax.swing.JFrame {
                         .addComponent(lbl_previousNotes)
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 84, Short.MAX_VALUE))
+                        .addGap(0, 174, Short.MAX_VALUE))
                     .addGroup(panel_noteReviewLayout.createSequentialGroup()
                         .addComponent(jScrollPane2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -464,6 +491,8 @@ public class AdminForm extends javax.swing.JFrame {
 
         tabPane_container.addTab("Note Review", panel_noteReview);
 
+        panel_participants.setPreferredSize(new java.awt.Dimension(984, 554));
+
         lbl_participantName.setText("Participant ID:");
 
         lbl_participantFirstName.setText("First Name:");
@@ -475,17 +504,39 @@ public class AdminForm extends javax.swing.JFrame {
 
         btn_addParticipant.setText("Add Participant");
         btn_addParticipant.setToolTipText("Add the values you typed as a new participant.");
+        btn_addParticipant.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_addParticipantActionPerformed(evt);
+            }
+        });
 
         btn_updateParticipant.setText("Update Participant");
         btn_updateParticipant.setToolTipText("Update the values of a selected participant.");
 
-        combo_participantSelect.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select A Participant", "Participant 1", "Participant 2", "Participant 3" }));
+        combo_participantSelect.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select A Participant" }));
+        combo_participantSelect.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                combo_participantSelectActionPerformed(evt);
+            }
+        });
 
         combo_selectDCP.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select DCP", "-", "-", "-", "-", "-" }));
 
         check_medicaid.setText("Medicaid");
+        check_medicaid.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                check_medicaidActionPerformed(evt);
+            }
+        });
 
         check_selfPay.setText("Self-Pay");
+        check_selfPay.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                check_selfPayActionPerformed(evt);
+            }
+        });
+
+        check_seizure.setText("Experiences Seizures");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -502,7 +553,8 @@ public class AdminForm extends javax.swing.JFrame {
                     .addComponent(txt_participantID, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txt_participantFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txt_participantLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(combo_selectDCP, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(combo_selectDCP, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(check_seizure))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -513,7 +565,7 @@ public class AdminForm extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(check_medicaid)
                     .addComponent(check_selfPay))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txt_participantID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txt_participantFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -521,7 +573,9 @@ public class AdminForm extends javax.swing.JFrame {
                 .addComponent(txt_participantLastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(combo_selectDCP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(check_seizure)
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Goal 1", "Goal 2", "Goal 3", "Goal 4", "Goal 5" }));
@@ -620,9 +674,9 @@ public class AdminForm extends javax.swing.JFrame {
                         .addComponent(lbl_participantLastName)
                         .addGap(15, 15, 15)
                         .addComponent(lbl_participantDCP))
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(panel_participantGoals, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                    .addComponent(panel_participantGoals, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 135, Short.MAX_VALUE)
                 .addGroup(panel_participantsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_addParticipant)
                     .addComponent(btn_updateParticipant))
@@ -718,7 +772,7 @@ public class AdminForm extends javax.swing.JFrame {
                         .addComponent(btn_deleteUser)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btn_updateUser, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(261, Short.MAX_VALUE))
+                .addContainerGap(386, Short.MAX_VALUE))
         );
 
         panel_usersLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btn_deleteUser, btn_newUser, btn_updateUser, btn_viewUser});
@@ -748,7 +802,7 @@ public class AdminForm extends javax.swing.JFrame {
                 .addGroup(panel_usersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_userLevel)
                     .addComponent(combo_userLevel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 201, Short.MAX_VALUE)
                 .addGroup(panel_usersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_newUser)
                     .addComponent(btn_deleteUser)
@@ -759,8 +813,6 @@ public class AdminForm extends javax.swing.JFrame {
 
         tabPane_container.addTab("Users", panel_users);
 
-        panel_noteWriting.setToolTipText("");
-
         panel_noteWritingGoals.setBorder(javax.swing.BorderFactory.createTitledBorder("Goals"));
 
         txt_goalDescription1.setColumns(10);
@@ -769,40 +821,41 @@ public class AdminForm extends javax.swing.JFrame {
         txt_goalDescription1.setToolTipText("");
         jsp_goalDescription1.setViewportView(txt_goalDescription1);
 
-        btnGroup_yesNo1.add(radio_goal1Yes);
         radio_goal1Yes.setText("Yes");
         radio_goal1Yes.setToolTipText("Goal 1 accomplished today?");
 
-        btnGroup_yesNo1.add(radio_goal1No);
         radio_goal1No.setText("No");
         radio_goal1No.setToolTipText("Goal 1 accomplished today?");
 
         combo_promptingLevel1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6" }));
         combo_promptingLevel1.setToolTipText("Select prompting level for goal 1.");
 
+        btn_appendGoal1.setText("->");
+        btn_appendGoal1.setToolTipText("Add this goal to your note.");
+
         javax.swing.GroupLayout panel_goal01Layout = new javax.swing.GroupLayout(panel_goal01);
         panel_goal01.setLayout(panel_goal01Layout);
         panel_goal01Layout.setHorizontalGroup(
             panel_goal01Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_goal01Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(panel_goal01Layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(combo_promptingLevel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panel_goal01Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(radio_goal1Yes)
                     .addComponent(radio_goal1No))
                 .addGap(18, 18, 18)
-                .addComponent(jsp_goalDescription1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jsp_goalDescription1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btn_appendGoal1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, Short.MAX_VALUE)
+                .addContainerGap())
         );
-
-        panel_goal01Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {radio_goal1No, radio_goal1Yes});
-
         panel_goal01Layout.setVerticalGroup(
             panel_goal01Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel_goal01Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_goal01Layout.createSequentialGroup()
                 .addComponent(jsp_goalDescription1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(panel_goal01Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_goal01Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(radio_goal1Yes)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -812,6 +865,10 @@ public class AdminForm extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(combo_promptingLevel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
+            .addGroup(panel_goal01Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(btn_appendGoal1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         txt_goalDescription2.setColumns(10);
@@ -819,37 +876,38 @@ public class AdminForm extends javax.swing.JFrame {
         txt_goalDescription2.setRows(5);
         jsp_goalDescription2.setViewportView(txt_goalDescription2);
 
-        btnGroup_yesNo2.add(radio_goal2Yes);
         radio_goal2Yes.setText("Yes");
         radio_goal2Yes.setToolTipText("Goal 2 accomplished today?");
 
-        btnGroup_yesNo2.add(radio_goal2No);
         radio_goal2No.setText("No");
         radio_goal2No.setToolTipText("Goal 2 accomplished today?");
 
         combo_promptingLevel2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6" }));
         combo_promptingLevel2.setToolTipText("Select prompting level for goal 2.");
 
+        btn_appendGoal2.setText("->");
+        btn_appendGoal2.setToolTipText("Add this goal to your note.");
+
         javax.swing.GroupLayout panel_goal02Layout = new javax.swing.GroupLayout(panel_goal02);
         panel_goal02.setLayout(panel_goal02Layout);
         panel_goal02Layout.setHorizontalGroup(
             panel_goal02Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_goal02Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(panel_goal02Layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(combo_promptingLevel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panel_goal02Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(radio_goal2Yes)
                     .addComponent(radio_goal2No))
                 .addGap(18, 18, 18)
-                .addComponent(jsp_goalDescription2, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jsp_goalDescription2, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btn_appendGoal2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addContainerGap())
         );
-
-        panel_goal02Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {radio_goal2No, radio_goal2Yes});
-
         panel_goal02Layout.setVerticalGroup(
             panel_goal02Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel_goal02Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_goal02Layout.createSequentialGroup()
                 .addComponent(jsp_goalDescription2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(panel_goal02Layout.createSequentialGroup()
@@ -861,7 +919,10 @@ public class AdminForm extends javax.swing.JFrame {
                         .addComponent(radio_goal2No))
                     .addGroup(panel_goal02Layout.createSequentialGroup()
                         .addGap(21, 21, 21)
-                        .addComponent(combo_promptingLevel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(combo_promptingLevel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panel_goal02Layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(btn_appendGoal2)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -870,34 +931,35 @@ public class AdminForm extends javax.swing.JFrame {
         txt_goalDescription3.setRows(5);
         jsp_goalDescription3.setViewportView(txt_goalDescription3);
 
-        btnGroup_yesNo3.add(radio_goal3No);
         radio_goal3No.setText("No");
         radio_goal3No.setToolTipText("Goal 3 accomplished today?");
 
-        btnGroup_yesNo3.add(radio_goal3Yes);
         radio_goal3Yes.setText("Yes");
         radio_goal3Yes.setToolTipText("Goal 3 accomplished today?");
 
         combo_promptingLevel3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6" }));
         combo_promptingLevel3.setToolTipText("Select prompting level for goal 3.");
 
+        btn_appendGoal3.setText("->");
+        btn_appendGoal3.setToolTipText("Add this goal to your note.");
+
         javax.swing.GroupLayout panel_goal03Layout = new javax.swing.GroupLayout(panel_goal03);
         panel_goal03.setLayout(panel_goal03Layout);
         panel_goal03Layout.setHorizontalGroup(
             panel_goal03Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_goal03Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(panel_goal03Layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(combo_promptingLevel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panel_goal03Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(radio_goal3No)
                     .addComponent(radio_goal3Yes))
                 .addGap(18, 18, 18)
-                .addComponent(jsp_goalDescription3, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jsp_goalDescription3, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btn_appendGoal3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addContainerGap())
         );
-
-        panel_goal03Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {radio_goal3No, radio_goal3Yes});
-
         panel_goal03Layout.setVerticalGroup(
             panel_goal03Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_goal03Layout.createSequentialGroup()
@@ -911,7 +973,10 @@ public class AdminForm extends javax.swing.JFrame {
                             .addComponent(radio_goal3No))
                         .addGroup(panel_goal03Layout.createSequentialGroup()
                             .addGap(20, 20, 20)
-                            .addComponent(combo_promptingLevel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(combo_promptingLevel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(panel_goal03Layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(btn_appendGoal3)))
                 .addContainerGap())
         );
 
@@ -920,34 +985,34 @@ public class AdminForm extends javax.swing.JFrame {
         txt_goalDescription4.setRows(5);
         jsp_goalDescription4.setViewportView(txt_goalDescription4);
 
-        btnGroup_yesNo4.add(radio_goal4Yes);
         radio_goal4Yes.setText("Yes");
         radio_goal4Yes.setToolTipText("Goal 4 accomplished today?");
 
-        btnGroup_yesNo4.add(radio_goal4No);
         radio_goal4No.setText("No");
         radio_goal4No.setToolTipText("Goal 4 accomplished today?");
 
         combo_promptingLevel4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6" }));
         combo_promptingLevel4.setToolTipText("Select prompting level for goal 4.");
 
+        btn_appendGoal4.setText("->");
+        btn_appendGoal4.setToolTipText("Add this goal to your note.");
+
         javax.swing.GroupLayout panel_goal04Layout = new javax.swing.GroupLayout(panel_goal04);
         panel_goal04.setLayout(panel_goal04Layout);
         panel_goal04Layout.setHorizontalGroup(
             panel_goal04Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_goal04Layout.createSequentialGroup()
-                .addGap(0, 6, Short.MAX_VALUE)
+            .addGroup(panel_goal04Layout.createSequentialGroup()
                 .addComponent(combo_promptingLevel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panel_goal04Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(radio_goal4Yes, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(radio_goal4No, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(18, 18, 18)
-                .addComponent(jsp_goalDescription4, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jsp_goalDescription4, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btn_appendGoal4, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addContainerGap())
         );
-
-        panel_goal04Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {radio_goal4No, radio_goal4Yes});
-
         panel_goal04Layout.setVerticalGroup(
             panel_goal04Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_goal04Layout.createSequentialGroup()
@@ -960,7 +1025,10 @@ public class AdminForm extends javax.swing.JFrame {
                         .addComponent(radio_goal4No))
                     .addGroup(panel_goal04Layout.createSequentialGroup()
                         .addGap(23, 23, 23)
-                        .addComponent(combo_promptingLevel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(combo_promptingLevel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panel_goal04Layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(btn_appendGoal4)))
                 .addContainerGap())
         );
 
@@ -969,37 +1037,37 @@ public class AdminForm extends javax.swing.JFrame {
         txt_goalDescription5.setRows(5);
         jsp_goalDescription5.setViewportView(txt_goalDescription5);
 
-        btnGroup_yesNo5.add(radio_goal5Yes);
         radio_goal5Yes.setText("Yes");
         radio_goal5Yes.setToolTipText("Goal 5 accomplished today?");
 
-        btnGroup_yesNo5.add(radio_goal5No);
         radio_goal5No.setText("No");
         radio_goal5No.setToolTipText("Goal 5 accomplished today?");
 
         combo_promptingLevel5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6" }));
         combo_promptingLevel5.setToolTipText("Select prompting level for goal 5.");
 
+        btn_appendGoal5.setText("->");
+        btn_appendGoal5.setToolTipText("Add this goal to your note.");
+
         javax.swing.GroupLayout panel_goal05Layout = new javax.swing.GroupLayout(panel_goal05);
         panel_goal05.setLayout(panel_goal05Layout);
         panel_goal05Layout.setHorizontalGroup(
             panel_goal05Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_goal05Layout.createSequentialGroup()
-                .addGap(0, 6, Short.MAX_VALUE)
+            .addGroup(panel_goal05Layout.createSequentialGroup()
                 .addComponent(combo_promptingLevel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panel_goal05Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(radio_goal5Yes, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(radio_goal5No, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(18, 18, 18)
-                .addComponent(jsp_goalDescription5, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jsp_goalDescription5, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btn_appendGoal5, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addContainerGap())
         );
-
-        panel_goal05Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {radio_goal5No, radio_goal5Yes});
-
         panel_goal05Layout.setVerticalGroup(
             panel_goal05Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel_goal05Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_goal05Layout.createSequentialGroup()
                 .addComponent(jsp_goalDescription5, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(panel_goal05Layout.createSequentialGroup()
@@ -1011,7 +1079,10 @@ public class AdminForm extends javax.swing.JFrame {
                         .addComponent(radio_goal5No))
                     .addGroup(panel_goal05Layout.createSequentialGroup()
                         .addGap(20, 20, 20)
-                        .addComponent(combo_promptingLevel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(combo_promptingLevel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panel_goal05Layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(btn_appendGoal5)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -1022,15 +1093,14 @@ public class AdminForm extends javax.swing.JFrame {
             .addGroup(panel_noteWritingGoalsLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panel_noteWritingGoalsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panel_noteWritingGoalsLayout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(panel_goal04, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(panel_goal01, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(panel_goal02, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(panel_goal03, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_noteWritingGoalsLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(panel_goal05, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(panel_noteWritingGoalsLayout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addGroup(panel_noteWritingGoalsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(panel_goal05, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(panel_goal04, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         panel_noteWritingGoalsLayout.setVerticalGroup(
@@ -1045,7 +1115,7 @@ public class AdminForm extends javax.swing.JFrame {
                 .addComponent(panel_goal04, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panel_goal05, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         combo_noteChooseParticipant.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "No participant selected.", "-", "-", "-", "-", "-" }));
@@ -1056,21 +1126,6 @@ public class AdminForm extends javax.swing.JFrame {
         PLACEHOLDER_date.setText("DATE");
         PLACEHOLDER_date.setToolTipText("A date selector will go here.");
         PLACEHOLDER_date.setEnabled(false);
-
-        btn_appendGoal1.setText("->");
-        btn_appendGoal1.setToolTipText("Add this goal to your note.");
-
-        btn_appendGoal2.setText("->");
-        btn_appendGoal2.setToolTipText("Add this goal to your note.");
-
-        btn_appendGoal3.setText("->");
-        btn_appendGoal3.setToolTipText("Add this goal to your note.");
-
-        btn_appendGoal4.setText("->");
-        btn_appendGoal4.setToolTipText("Add this goal to your note.");
-
-        btn_appendGoal5.setText("->");
-        btn_appendGoal5.setToolTipText("Add this goal to your note.");
 
         txt_noteContent.setColumns(20);
         txt_noteContent.setLineWrap(true);
@@ -1088,69 +1143,110 @@ public class AdminForm extends javax.swing.JFrame {
             }
         });
 
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Forms"));
+
+        check_formAbsence.setText("Absence");
+
+        check_formCCA.setText("CCA");
+
+        check_formNone.setText("None");
+
+        check_formSeizure.setText("Seizure");
+
+        check_formIncident.setText("Incident");
+
+        check_formBodyCheck.setText("Body Check");
+
+        check_formBloodPressure.setText("Blood Pressure");
+
+        check_formBowelMovement.setText("BM");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(check_formAbsence)
+            .addComponent(check_formCCA)
+            .addComponent(check_formNone)
+            .addComponent(check_formSeizure)
+            .addComponent(check_formIncident)
+            .addComponent(check_formBloodPressure)
+            .addComponent(check_formBowelMovement)
+            .addComponent(check_formBodyCheck)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addComponent(check_formNone)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(check_formCCA)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(check_formBloodPressure)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(check_formBodyCheck)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(check_formBowelMovement)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(check_formIncident)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(check_formSeizure)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(check_formAbsence)
+                .addContainerGap())
+        );
+
+        btn_displayCalendar.setText("Calendar");
+
         javax.swing.GroupLayout panel_noteWritingLayout = new javax.swing.GroupLayout(panel_noteWriting);
         panel_noteWriting.setLayout(panel_noteWritingLayout);
         panel_noteWritingLayout.setHorizontalGroup(
             panel_noteWritingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_noteWritingLayout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(panel_noteWritingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(panel_noteWritingLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(panel_noteWritingGoals, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(panel_noteWritingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(btn_appendGoal4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addComponent(btn_appendGoal3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addComponent(btn_appendGoal2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addComponent(btn_appendGoal1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn_appendGoal5, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panel_noteWritingLayout.createSequentialGroup()
                         .addComponent(lbl_noteChooseParticipant)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(10, 10, 10)
                         .addComponent(combo_noteChooseParticipant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(59, 59, 59)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btn_displayCalendar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btn_saveNote)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_submitNote)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(panel_noteWritingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panel_noteWritingLayout.createSequentialGroup()
-                        .addComponent(btn_saveNote)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 136, Short.MAX_VALUE)
-                        .addComponent(btn_submitNote)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(PLACEHOLDER_date, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panel_noteWritingLayout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(jScrollPane3)))
-                .addContainerGap())
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(21, 21, 21))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_noteWritingLayout.createSequentialGroup()
+                        .addComponent(PLACEHOLDER_date, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(34, 34, 34))))
         );
         panel_noteWritingLayout.setVerticalGroup(
             panel_noteWritingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_noteWritingLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panel_noteWritingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_saveNote)
-                    .addComponent(btn_submitNote))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(panel_noteWritingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(panel_noteWritingGoals, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(panel_noteWritingLayout.createSequentialGroup()
-                        .addComponent(jScrollPane3)
-                        .addContainerGap())))
             .addGroup(panel_noteWritingLayout.createSequentialGroup()
-                .addGroup(panel_noteWritingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(combo_noteChooseParticipant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbl_noteChooseParticipant)
-                    .addComponent(PLACEHOLDER_date, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(58, 58, 58)
-                .addComponent(btn_appendGoal1)
-                .addGap(47, 47, 47)
-                .addComponent(btn_appendGoal2)
-                .addGap(43, 43, 43)
-                .addComponent(btn_appendGoal3)
-                .addGap(48, 48, 48)
-                .addComponent(btn_appendGoal4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btn_appendGoal5)
-                .addGap(43, 43, 43))
+                .addGroup(panel_noteWritingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(PLACEHOLDER_date, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panel_noteWritingLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(panel_noteWritingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btn_saveNote)
+                            .addComponent(combo_noteChooseParticipant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbl_noteChooseParticipant)
+                            .addComponent(btn_displayCalendar)
+                            .addComponent(btn_submitNote))))
+                .addGap(18, 18, 18)
+                .addGroup(panel_noteWritingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(panel_noteWritingGoals, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 84, Short.MAX_VALUE))
         );
 
         tabPane_container.addTab("Note Writing", panel_noteWriting);
@@ -1195,7 +1291,7 @@ public class AdminForm extends javax.swing.JFrame {
                     .addComponent(pass_confirmNewPass, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pass_enterOldPass)
                     .addComponent(btn_confirmNewPass))
-                .addGap(0, 27, Short.MAX_VALUE))
+                .addGap(0, 186, Short.MAX_VALUE))
         );
 
         panel_updatePasswordLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btn_cancelNewPass, btn_confirmNewPass});
@@ -1219,7 +1315,7 @@ public class AdminForm extends javax.swing.JFrame {
                 .addGroup(panel_updatePasswordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_cancelNewPass)
                     .addComponent(btn_confirmNewPass))
-                .addContainerGap(85, Short.MAX_VALUE))
+                .addContainerGap(265, Short.MAX_VALUE))
         );
 
         panel_mySavedNotes.setBorder(javax.swing.BorderFactory.createTitledBorder("My Notes"));
@@ -1247,7 +1343,7 @@ public class AdminForm extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_mySavedNotesLayout.createSequentialGroup()
-                .addContainerGap(76, Short.MAX_VALUE)
+                .addContainerGap(180, Short.MAX_VALUE)
                 .addComponent(btn_openNote)
                 .addGap(18, 18, 18)
                 .addComponent(btn_deleteNote)
@@ -1275,20 +1371,17 @@ public class AdminForm extends javax.swing.JFrame {
         panel_myAccountLayout.setHorizontalGroup(
             panel_myAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_myAccountLayout.createSequentialGroup()
-                .addGap(69, 69, 69)
-                .addComponent(panel_updatePassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42)
-                .addComponent(panel_mySavedNotes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addComponent(panel_updatePassword, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panel_mySavedNotes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         panel_myAccountLayout.setVerticalGroup(
             panel_myAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_myAccountLayout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addGroup(panel_myAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(panel_myAccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(panel_mySavedNotes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(panel_updatePassword, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(63, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         tabPane_container.addTab("My Account", panel_myAccount);
@@ -1353,7 +1446,7 @@ public class AdminForm extends javax.swing.JFrame {
         panel_filesLayout.setHorizontalGroup(
             panel_filesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_filesLayout.createSequentialGroup()
-                .addContainerGap(237, Short.MAX_VALUE)
+                .addContainerGap(362, Short.MAX_VALUE)
                 .addComponent(panel_fileManaging, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(213, 213, 213))
         );
@@ -1362,10 +1455,56 @@ public class AdminForm extends javax.swing.JFrame {
             .addGroup(panel_filesLayout.createSequentialGroup()
                 .addGap(85, 85, 85)
                 .addComponent(panel_fileManaging, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(220, Short.MAX_VALUE))
+                .addContainerGap(310, Short.MAX_VALUE))
         );
 
         tabPane_container.addTab("Files", panel_files);
+
+        jList1.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 1", "Item 2", "Item 3", "Item 4", "Item 5Item 1", "Item 2", "Item 3", "Item 4", "Item 5Item 1", "Item 2", "Item 3", "Item 4", "Item 5Item 1", "Item 2", "Item 3", "Item 4", "Item 5Item 1", "Item 2", "Item 3", "Item 4", "Item 5Item 1", "Item 2", "Item 3", "Item 4", "Item 5Item 1", "Item 2", "Item 3", "Item 4", "Item 5Item 1", "Item 2", "Item 3", "Item 4", "Item 5Item 1", "Item 2", "Item 3", "Item 4", "Item 5Item 1", "Item 2", "Item 3", "Item 4", "Item 5Item 1", "Item 2", "Item 3", "Item 4", "Item 5Item 1", "Item 2", "Item 3", "Item 4", "Item 5Item 1", "Item 2", "Item 3", "Item 4", "Item 5Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane10.setViewportView(jList1);
+
+        lbl_listOfTimes.setText("Participants:");
+
+        jTextArea2.setColumns(20);
+        jTextArea2.setRows(5);
+        jScrollPane11.setViewportView(jTextArea2);
+
+        lbl_noteLabel.setText("Note:");
+
+        javax.swing.GroupLayout panel_timeReviewLayout = new javax.swing.GroupLayout(panel_timeReview);
+        panel_timeReview.setLayout(panel_timeReviewLayout);
+        panel_timeReviewLayout.setHorizontalGroup(
+            panel_timeReviewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_timeReviewLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panel_timeReviewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbl_listOfTimes))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                .addGroup(panel_timeReviewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 648, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbl_noteLabel))
+                .addContainerGap())
+        );
+        panel_timeReviewLayout.setVerticalGroup(
+            panel_timeReviewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_timeReviewLayout.createSequentialGroup()
+                .addContainerGap(14, Short.MAX_VALUE)
+                .addGroup(panel_timeReviewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbl_listOfTimes)
+                    .addComponent(lbl_noteLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panel_timeReviewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+
+        tabPane_container.addTab("Time Review", panel_timeReview);
 
         getContentPane().add(tabPane_container, new java.awt.GridBagConstraints());
 
@@ -1383,10 +1522,6 @@ public class AdminForm extends javax.swing.JFrame {
     private void btn_downloadFilesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_downloadFilesMouseClicked
         dialog_downloadFile.show();
     }//GEN-LAST:event_btn_downloadFilesMouseClicked
-
-    private void btn_submitNoteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_submitNoteMouseClicked
-        dialog_submitNote.show();
-    }//GEN-LAST:event_btn_submitNoteMouseClicked
 
     private void btn_rejectNoteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_rejectNoteMouseClicked
         dialog_addComments.show();
@@ -1490,6 +1625,61 @@ public class AdminForm extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btn_confirmNewPassActionPerformed
 
+    private void btn_submitNoteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_submitNoteMouseClicked
+        dialog_submitNote.show();
+    }//GEN-LAST:event_btn_submitNoteMouseClicked
+
+    private void check_medicaidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_check_medicaidActionPerformed
+        pl.setInsurance(check_medicaid.getText());
+        
+        check_selfPay.setSelected(false);
+        if(!txt_participantID.isEnabled()){
+            txt_participantID.setEnabled(true);
+        }
+        System.out.println(check_medicaid.getText());
+    }//GEN-LAST:event_check_medicaidActionPerformed
+
+    private void check_selfPayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_check_selfPayActionPerformed
+        pl.setInsurance(check_selfPay.getText());
+        check_medicaid.setSelected(false);
+        txt_participantID.setEnabled(false);
+        System.out.println(check_selfPay.getText());
+    }//GEN-LAST:event_check_selfPayActionPerformed
+
+    private void btn_addParticipantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_addParticipantActionPerformed
+        //Not yet Working
+        try {
+            if(txt_participantID.isEnabled()){
+                pl.setMedicaidNumber(txt_participantID.getText());
+                System.out.println(txt_participantID.isEnabled());
+            }
+            pl.setParticipantFirstName(txt_participantFirstName.getText());
+            pl.setParticipantLastName(txt_participantLastName.getText());
+            if(!check_selfPay.isSelected() && !check_medicaid.isSelected()){
+                System.out.println("None selected!");
+            }
+            else if(check_selfPay.isSelected()){
+                pl.setInsurance(check_selfPay.getText());
+                System.out.println("SelfPay!");
+            }
+            else if(check_medicaid.isSelected()){
+                pl.setInsurance(check_medicaid.getText());
+                System.out.println("Medicaid!");
+            }
+            pl.addParticipant();
+            populateComboParticipant(ParticipantLogic.populate());
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(AdminForm.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminForm.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_btn_addParticipantActionPerformed
+
+    private void combo_participantSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combo_participantSelectActionPerformed
+        
+    }//GEN-LAST:event_combo_participantSelectActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1525,6 +1715,10 @@ public class AdminForm extends javax.swing.JFrame {
         });
     }
     
+    /**
+     *
+     * @param list
+     */
     public void populateComboSelectUser(ArrayList list){
         try {
             combo_selectUser.removeAllItems();
@@ -1554,6 +1748,21 @@ public class AdminForm extends javax.swing.JFrame {
         }
     }
 
+    /**
+     *
+     * @param list
+     */
+    public void populateComboParticipant(ArrayList<ParticipantLogic> list){
+        combo_participantSelect.removeAllItems();
+        combo_participantSelect.addItem("Select A Participant");
+        String participantInfo;
+        System.out.println(list.size());
+        for(int i = 0; i < list.size(); i++){
+            participantInfo = list.get(i).getParticipantID() + list.get(i).getParticipantFirstName() + list.get(i).getParticipantLastName();
+            combo_participantSelect.addItem(participantInfo);
+        }
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField PLACEHOLDER_date;
     private javax.swing.ButtonGroup btnGroup_yesNo1;
@@ -1574,6 +1783,7 @@ public class AdminForm extends javax.swing.JFrame {
     private javax.swing.JButton btn_confirmNewPass;
     private javax.swing.JButton btn_deleteNote;
     private javax.swing.JButton btn_deleteUser;
+    private javax.swing.JButton btn_displayCalendar;
     private javax.swing.JButton btn_downloadFiles;
     private javax.swing.JButton btn_editNote;
     private javax.swing.JButton btn_newUser;
@@ -1590,7 +1800,16 @@ public class AdminForm extends javax.swing.JFrame {
     private javax.swing.JButton btn_updateUser;
     private javax.swing.JButton btn_uploadFile;
     private javax.swing.JButton btn_viewUser;
+    private javax.swing.JCheckBox check_formAbsence;
+    private javax.swing.JCheckBox check_formBloodPressure;
+    private javax.swing.JCheckBox check_formBodyCheck;
+    private javax.swing.JCheckBox check_formBowelMovement;
+    private javax.swing.JCheckBox check_formCCA;
+    private javax.swing.JCheckBox check_formIncident;
+    private javax.swing.JCheckBox check_formNone;
+    private javax.swing.JCheckBox check_formSeizure;
     private javax.swing.JCheckBox check_medicaid;
+    private javax.swing.JCheckBox check_seizure;
     private javax.swing.JCheckBox check_selfPay;
     private javax.swing.JComboBox<String> combo_noteChooseParticipant;
     private javax.swing.JComboBox<String> combo_participantSelect;
@@ -1611,8 +1830,12 @@ public class AdminForm extends javax.swing.JFrame {
     private javax.swing.JFileChooser jFileChooser1;
     private javax.swing.JFileChooser jFileChooser2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane10;
+    private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -1620,6 +1843,7 @@ public class AdminForm extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JTextArea jTextArea2;
     private javax.swing.JScrollPane jsp_goalDescription1;
     private javax.swing.JScrollPane jsp_goalDescription2;
     private javax.swing.JScrollPane jsp_goalDescription3;
@@ -1631,7 +1855,9 @@ public class AdminForm extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_enterOldPassword;
     private javax.swing.JLabel lbl_goalDescription;
     private javax.swing.JLabel lbl_insurance;
+    private javax.swing.JLabel lbl_listOfTimes;
     private javax.swing.JLabel lbl_noteChooseParticipant;
+    private javax.swing.JLabel lbl_noteLabel;
     private javax.swing.JLabel lbl_noteSubmissionInstructions;
     private javax.swing.JLabel lbl_noteSubmitFurtherInstructions;
     private javax.swing.JLabel lbl_noteToBeReviewed;
@@ -1665,6 +1891,7 @@ public class AdminForm extends javax.swing.JFrame {
     private javax.swing.JPanel panel_noteWritingGoals;
     private javax.swing.JPanel panel_participantGoals;
     private javax.swing.JPanel panel_participants;
+    private javax.swing.JPanel panel_timeReview;
     private javax.swing.JPanel panel_updatePassword;
     private javax.swing.JPanel panel_users;
     private javax.swing.JPasswordField pass_confirmNewPass;

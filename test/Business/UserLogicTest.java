@@ -75,11 +75,11 @@ public class UserLogicTest {
     @Test
    public void testInsertUser() throws Exception {
         System.out.println("insertUser");
-        String username = "TristonG";
-        String password = "pass";
-        String firstName = "Triston";
-        String lastName = "Gregoire";
-        String clearance = "0";
+        String username = "";
+        String password = "";
+        String firstName = "";
+        String lastName = "";
+        String clearance = "";
         UserLogic instance = new UserLogic();
         instance.insertUser(username, password, firstName, lastName, clearance);
         // TODO review the generated test code and remove the default call to fail.

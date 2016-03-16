@@ -21,6 +21,10 @@ public class UserLogic {
     private String firstName = null;
     private String lastName = null;
     private int clearance = -1;
+
+    /**
+     *
+     */
     public UserDBConnect uc = new UserDBConnect();
 
     /**
@@ -124,7 +128,7 @@ public class UserLogic {
     
     /**
      *
-     * @param userName
+     * @param username
      * @param password
      * @return
      * @throws SQLException
@@ -145,7 +149,6 @@ public class UserLogic {
     /**
      *
      * @param username
-     * @return
      * @throws ClassNotFoundException
      * @throws ArrayIndexOutOfBoundsException
      * @throws SQLException
@@ -182,12 +185,6 @@ public class UserLogic {
     
     /**
      *
-     * @param username
-     * @param password
-     * @param firstName
-     * @param lastName
-     * @param clearance
-     * @param oldUsername
      * @throws SQLException
      * @throws ClassNotFoundException
      */

@@ -91,6 +91,7 @@ public class UserDBConnect {
     
     /**
      * Selects user from database and returns a concatenated String.
+     * @param object
      * @param name
      * @return
      * @throws ClassNotFoundException
@@ -148,10 +149,6 @@ public class UserDBConnect {
      * Inserts information into the User table of the database
      * 
      * @param object
-     * @param userName Username for the user being entered into the system
-     * @param pass Password for the username being entered into the system
-     * @param firstName First Name for the user being entered into the system
-     * @param lastName Last Name for the user being entered into the system
      * @param clearance clearance level for users in system. 0 being the highest level access and 4 being the lowest
      * @throws java.sql.SQLException
      * @throws java.lang.ClassNotFoundException
@@ -176,6 +173,7 @@ public class UserDBConnect {
      *
      * Updates entry in the database
      * 
+     * @param object
      * @param newUsername
      * @param password
      * @param firstName

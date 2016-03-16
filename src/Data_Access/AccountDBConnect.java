@@ -20,6 +20,13 @@ import java.sql.SQLException;
  * @author Triston_Gregoire
  */
 public class AccountDBConnect {    
+
+    /**
+     *
+     * @param object
+     * @throws ClassNotFoundException
+     * @throws SQLException
+     */
     public void updatePassword(Account object) throws ClassNotFoundException, SQLException{
         String sql = "update user set Password = ? where UserName = ?";
         Class.forName(driver);

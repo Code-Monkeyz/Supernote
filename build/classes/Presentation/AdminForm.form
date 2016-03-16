@@ -266,7 +266,7 @@
     <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
     <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
-    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,1,-2,0,0,3,119"/>
+    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,2,88,0,0,3,-19"/>
   </AuxValues>
 
   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout"/>
@@ -275,7 +275,7 @@
       <Properties>
         <Property name="name" type="java.lang.String" value="" noResource="true"/>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[850, 500]"/>
+          <Dimension value="[980, 600]"/>
         </Property>
       </Properties>
       <Constraints>
@@ -329,7 +329,7 @@
                               <Component id="btn_editNote" linkSize="12" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="btn_approveNote" linkSize="12" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="213" max="32767" attributes="0"/>
+                              <EmptySpace pref="338" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <Component id="lbl_noteToBeReviewed" min="-2" max="-2" attributes="0"/>
@@ -361,7 +361,7 @@
                               <Component id="lbl_previousNotes" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jScrollPane6" min="-2" pref="124" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="84" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="174" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jScrollPane2" max="32767" attributes="0"/>
@@ -498,6 +498,11 @@
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="panel_participants">
+          <Properties>
+            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[984, 554]"/>
+            </Property>
+          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
               <JTabbedPaneConstraints tabName="Participants">
@@ -552,10 +557,10 @@
                               <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                               <Component id="lbl_participantDCP" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
                           <Component id="panel_participantGoals" min="-2" max="-2" attributes="0"/>
+                          <Component id="jPanel1" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="45" max="32767" attributes="0"/>
+                      <EmptySpace pref="135" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="btn_addParticipant" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btn_updateParticipant" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -592,6 +597,9 @@
                 <Property name="text" type="java.lang.String" value="Add Participant"/>
                 <Property name="toolTipText" type="java.lang.String" value="Add the values you typed as a new participant."/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_addParticipantActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btn_updateParticipant">
               <Properties>
@@ -604,7 +612,7 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
+                      <Group type="102" attributes="0">
                           <Component id="check_medicaid" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="check_selfPay" min="-2" max="-2" attributes="0"/>
@@ -617,6 +625,7 @@
                               <Component id="txt_participantFirstName" min="-2" pref="214" max="-2" attributes="0"/>
                               <Component id="txt_participantLastName" min="-2" pref="214" max="-2" attributes="0"/>
                               <Component id="combo_selectDCP" min="-2" pref="214" max="-2" attributes="0"/>
+                              <Component id="check_seizure" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
@@ -631,7 +640,7 @@
                               <Component id="check_medicaid" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="check_selfPay" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="11" max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Component id="txt_participantID" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="txt_participantFirstName" min="-2" max="-2" attributes="0"/>
@@ -640,6 +649,8 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="combo_selectDCP" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
+                          <Component id="check_seizure" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="18" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -648,14 +659,14 @@
                 <Component class="javax.swing.JComboBox" name="combo_participantSelect">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="4">
+                      <StringArray count="1">
                         <StringItem index="0" value="Select A Participant"/>
-                        <StringItem index="1" value="Participant 1"/>
-                        <StringItem index="2" value="Participant 2"/>
-                        <StringItem index="3" value="Participant 3"/>
                       </StringArray>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="combo_participantSelectActionPerformed"/>
+                  </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
@@ -687,10 +698,21 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Medicaid"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="check_medicaidActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JCheckBox" name="check_selfPay">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Self-Pay"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="check_selfPayActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JCheckBox" name="check_seizure">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Experiences Seizures"/>
                   </Properties>
                 </Component>
               </SubComponents>
@@ -852,7 +874,7 @@
                               <Component id="btn_updateUser" linkSize="13" min="-2" pref="84" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="261" max="32767" attributes="0"/>
+                      <EmptySpace pref="386" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -886,7 +908,7 @@
                           <Component id="lbl_userLevel" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="combo_userLevel" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="103" max="32767" attributes="0"/>
+                      <EmptySpace pref="201" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="btn_newUser" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btn_deleteUser" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -1004,9 +1026,6 @@
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="panel_noteWriting">
-          <Properties>
-            <Property name="toolTipText" type="java.lang.String" value=""/>
-          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
               <JTabbedPaneConstraints tabName="Note Writing">
@@ -1018,79 +1037,63 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace max="32767" attributes="0"/>
                               <Component id="panel_noteWritingGoals" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="btn_appendGoal4" alignment="0" pref="0" max="32767" attributes="0"/>
-                                  <Component id="btn_appendGoal3" alignment="0" pref="0" max="32767" attributes="0"/>
-                                  <Component id="btn_appendGoal2" alignment="0" pref="0" max="32767" attributes="0"/>
-                                  <Component id="btn_appendGoal1" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
-                                  <Component id="btn_appendGoal5" pref="0" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="jScrollPane3" min="-2" pref="400" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="lbl_noteChooseParticipant" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                               <Component id="combo_noteChooseParticipant" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="btn_saveNote" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="136" max="32767" attributes="0"/>
-                              <Component id="btn_submitNote" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="PLACEHOLDER_date" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                              <Component id="jScrollPane3" max="32767" attributes="0"/>
+                              <Component id="btn_displayCalendar" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="btn_saveNote" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="btn_submitNote" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="PLACEHOLDER_date" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="btn_saveNote" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btn_submitNote" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="panel_noteWritingGoals" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <Component id="jScrollPane3" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="PLACEHOLDER_date" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="btn_saveNote" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="combo_noteChooseParticipant" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lbl_noteChooseParticipant" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btn_displayCalendar" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btn_submitNote" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="combo_noteChooseParticipant" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lbl_noteChooseParticipant" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="PLACEHOLDER_date" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="panel_noteWritingGoals" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jScrollPane3" alignment="0" min="-2" pref="417" max="-2" attributes="0"/>
+                          <Component id="jPanel2" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
-                      <Component id="btn_appendGoal1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
-                      <Component id="btn_appendGoal2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-                      <Component id="btn_appendGoal3" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
-                      <Component id="btn_appendGoal4" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="btn_appendGoal5" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="84" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1108,19 +1111,18 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                                  <Component id="panel_goal04" max="32767" attributes="0"/>
-                              </Group>
                               <Component id="panel_goal01" alignment="1" max="32767" attributes="0"/>
                               <Component id="panel_goal02" alignment="0" max="32767" attributes="0"/>
                               <Component id="panel_goal03" alignment="1" max="32767" attributes="0"/>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                  <Component id="panel_goal05" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="panel_goal05" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="panel_goal04" alignment="0" max="32767" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -1139,7 +1141,7 @@
                           <Component id="panel_goal04" min="-2" pref="70" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="panel_goal05" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="25" max="32767" attributes="0"/>
+                          <EmptySpace pref="19" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1150,26 +1152,29 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
                               <Component id="combo_promptingLevel1" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="radio_goal1Yes" linkSize="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="radio_goal1No" linkSize="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="radio_goal1Yes" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="radio_goal1No" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jsp_goalDescription1" min="-2" pref="164" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="btn_appendGoal1" pref="43" max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
                               <Component id="jsp_goalDescription1" min="-2" pref="70" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="radio_goal1Yes" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
@@ -1180,6 +1185,11 @@
                               <EmptySpace max="32767" attributes="0"/>
                               <Component id="combo_promptingLevel1" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                              <Component id="btn_appendGoal1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1204,18 +1214,12 @@
                     </Container>
                     <Component class="javax.swing.JRadioButton" name="radio_goal1Yes">
                       <Properties>
-                        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                          <ComponentRef name="btnGroup_yesNo1"/>
-                        </Property>
                         <Property name="text" type="java.lang.String" value="Yes"/>
                         <Property name="toolTipText" type="java.lang.String" value="Goal 1 accomplished today?"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JRadioButton" name="radio_goal1No">
                       <Properties>
-                        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                          <ComponentRef name="btnGroup_yesNo1"/>
-                        </Property>
                         <Property name="text" type="java.lang.String" value="No"/>
                         <Property name="toolTipText" type="java.lang.String" value="Goal 1 accomplished today?"/>
                       </Properties>
@@ -1238,6 +1242,12 @@
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                       </AuxValues>
                     </Component>
+                    <Component class="javax.swing.JButton" name="btn_appendGoal1">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="-&gt;"/>
+                        <Property name="toolTipText" type="java.lang.String" value="Add this goal to your note."/>
+                      </Properties>
+                    </Component>
                   </SubComponents>
                 </Container>
                 <Container class="javax.swing.JPanel" name="panel_goal02">
@@ -1245,28 +1255,31 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
                               <Component id="combo_promptingLevel2" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="radio_goal2Yes" linkSize="2" min="-2" max="-2" attributes="0"/>
-                                  <Component id="radio_goal2No" linkSize="2" min="-2" max="-2" attributes="0"/>
+                                  <Component id="radio_goal2Yes" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="radio_goal2No" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jsp_goalDescription2" min="-2" pref="164" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="btn_appendGoal2" pref="0" max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
                               <Component id="jsp_goalDescription2" min="-2" pref="70" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
-                          <Group type="102" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="radio_goal2Yes" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
@@ -1275,6 +1288,10 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                                       <Component id="combo_promptingLevel2" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                                      <Component id="btn_appendGoal2" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace max="32767" attributes="0"/>
@@ -1301,18 +1318,12 @@
                     </Container>
                     <Component class="javax.swing.JRadioButton" name="radio_goal2Yes">
                       <Properties>
-                        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                          <ComponentRef name="btnGroup_yesNo2"/>
-                        </Property>
                         <Property name="text" type="java.lang.String" value="Yes"/>
                         <Property name="toolTipText" type="java.lang.String" value="Goal 2 accomplished today?"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JRadioButton" name="radio_goal2No">
                       <Properties>
-                        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                          <ComponentRef name="btnGroup_yesNo2"/>
-                        </Property>
                         <Property name="text" type="java.lang.String" value="No"/>
                         <Property name="toolTipText" type="java.lang.String" value="Goal 2 accomplished today?"/>
                       </Properties>
@@ -1335,6 +1346,12 @@
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                       </AuxValues>
                     </Component>
+                    <Component class="javax.swing.JButton" name="btn_appendGoal2">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="-&gt;"/>
+                        <Property name="toolTipText" type="java.lang.String" value="Add this goal to your note."/>
+                      </Properties>
+                    </Component>
                   </SubComponents>
                 </Container>
                 <Container class="javax.swing.JPanel" name="panel_goal03">
@@ -1342,25 +1359,28 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
                               <Component id="combo_promptingLevel3" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="radio_goal3No" linkSize="4" min="-2" max="-2" attributes="0"/>
-                                  <Component id="radio_goal3Yes" linkSize="4" min="-2" max="-2" attributes="0"/>
+                                  <Component id="radio_goal3No" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="radio_goal3Yes" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jsp_goalDescription3" min="-2" pref="164" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="btn_appendGoal3" pref="0" max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jsp_goalDescription3" min="-2" pref="70" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jsp_goalDescription3" alignment="0" min="-2" pref="70" max="-2" attributes="0"/>
+                                  <Group type="103" alignment="0" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="1" attributes="0">
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="radio_goal3Yes" min="-2" max="-2" attributes="0"/>
@@ -1371,6 +1391,10 @@
                                           <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                                           <Component id="combo_promptingLevel3" min="-2" max="-2" attributes="0"/>
                                       </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                                      <Component id="btn_appendGoal3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
@@ -1397,18 +1421,12 @@
                     </Container>
                     <Component class="javax.swing.JRadioButton" name="radio_goal3No">
                       <Properties>
-                        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                          <ComponentRef name="btnGroup_yesNo3"/>
-                        </Property>
                         <Property name="text" type="java.lang.String" value="No"/>
                         <Property name="toolTipText" type="java.lang.String" value="Goal 3 accomplished today?"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JRadioButton" name="radio_goal3Yes">
                       <Properties>
-                        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                          <ComponentRef name="btnGroup_yesNo3"/>
-                        </Property>
                         <Property name="text" type="java.lang.String" value="Yes"/>
                         <Property name="toolTipText" type="java.lang.String" value="Goal 3 accomplished today?"/>
                       </Properties>
@@ -1431,6 +1449,12 @@
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                       </AuxValues>
                     </Component>
+                    <Component class="javax.swing.JButton" name="btn_appendGoal3">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="-&gt;"/>
+                        <Property name="toolTipText" type="java.lang.String" value="Add this goal to your note."/>
+                      </Properties>
+                    </Component>
                   </SubComponents>
                 </Container>
                 <Container class="javax.swing.JPanel" name="panel_goal04">
@@ -1438,24 +1462,26 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace min="0" pref="6" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
                               <Component id="combo_promptingLevel4" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="radio_goal4Yes" linkSize="6" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="radio_goal4No" linkSize="6" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="radio_goal4Yes" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="radio_goal4No" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jsp_goalDescription4" min="-2" pref="164" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="btn_appendGoal4" pref="0" max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jsp_goalDescription4" min="-2" pref="70" max="-2" attributes="0"/>
+                                  <Component id="jsp_goalDescription4" alignment="0" min="-2" pref="70" max="-2" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="radio_goal4Yes" min="-2" max="-2" attributes="0"/>
@@ -1465,6 +1491,10 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                                       <Component id="combo_promptingLevel4" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                                      <Component id="btn_appendGoal4" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
@@ -1491,18 +1521,12 @@
                     </Container>
                     <Component class="javax.swing.JRadioButton" name="radio_goal4Yes">
                       <Properties>
-                        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                          <ComponentRef name="btnGroup_yesNo4"/>
-                        </Property>
                         <Property name="text" type="java.lang.String" value="Yes"/>
                         <Property name="toolTipText" type="java.lang.String" value="Goal 4 accomplished today?"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JRadioButton" name="radio_goal4No">
                       <Properties>
-                        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                          <ComponentRef name="btnGroup_yesNo4"/>
-                        </Property>
                         <Property name="text" type="java.lang.String" value="No"/>
                         <Property name="toolTipText" type="java.lang.String" value="Goal 4 accomplished today?"/>
                       </Properties>
@@ -1525,6 +1549,12 @@
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                       </AuxValues>
                     </Component>
+                    <Component class="javax.swing.JButton" name="btn_appendGoal4">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="-&gt;"/>
+                        <Property name="toolTipText" type="java.lang.String" value="Add this goal to your note."/>
+                      </Properties>
+                    </Component>
                   </SubComponents>
                 </Container>
                 <Container class="javax.swing.JPanel" name="panel_goal05">
@@ -1532,26 +1562,28 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace min="0" pref="6" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
                               <Component id="combo_promptingLevel5" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="radio_goal5Yes" linkSize="7" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="radio_goal5No" linkSize="7" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="radio_goal5Yes" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="radio_goal5No" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jsp_goalDescription5" min="-2" pref="164" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="btn_appendGoal5" pref="0" max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
                               <Component id="jsp_goalDescription5" min="-2" pref="70" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
-                          <Group type="102" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace max="-2" attributes="0"/>
@@ -1562,6 +1594,10 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                                       <Component id="combo_promptingLevel5" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                                      <Component id="btn_appendGoal5" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace max="32767" attributes="0"/>
@@ -1588,18 +1624,12 @@
                     </Container>
                     <Component class="javax.swing.JRadioButton" name="radio_goal5Yes">
                       <Properties>
-                        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                          <ComponentRef name="btnGroup_yesNo5"/>
-                        </Property>
                         <Property name="text" type="java.lang.String" value="Yes"/>
                         <Property name="toolTipText" type="java.lang.String" value="Goal 5 accomplished today?"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JRadioButton" name="radio_goal5No">
                       <Properties>
-                        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                          <ComponentRef name="btnGroup_yesNo5"/>
-                        </Property>
                         <Property name="text" type="java.lang.String" value="No"/>
                         <Property name="toolTipText" type="java.lang.String" value="Goal 5 accomplished today?"/>
                       </Properties>
@@ -1621,6 +1651,12 @@
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                       </AuxValues>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="btn_appendGoal5">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="-&gt;"/>
+                        <Property name="toolTipText" type="java.lang.String" value="Add this goal to your note."/>
+                      </Properties>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -1656,36 +1692,6 @@
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="btn_appendGoal1">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="-&gt;"/>
-                <Property name="toolTipText" type="java.lang.String" value="Add this goal to your note."/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JButton" name="btn_appendGoal2">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="-&gt;"/>
-                <Property name="toolTipText" type="java.lang.String" value="Add this goal to your note."/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JButton" name="btn_appendGoal3">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="-&gt;"/>
-                <Property name="toolTipText" type="java.lang.String" value="Add this goal to your note."/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JButton" name="btn_appendGoal4">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="-&gt;"/>
-                <Property name="toolTipText" type="java.lang.String" value="Add this goal to your note."/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JButton" name="btn_appendGoal5">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="-&gt;"/>
-                <Property name="toolTipText" type="java.lang.String" value="Add this goal to your note."/>
-              </Properties>
-            </Component>
             <Container class="javax.swing.JScrollPane" name="jScrollPane3">
               <AuxValues>
                 <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
@@ -1717,6 +1723,100 @@
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_submitNoteMouseClicked"/>
               </Events>
             </Component>
+            <Container class="javax.swing.JPanel" name="jPanel2">
+              <Properties>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                    <TitledBorder title="Forms"/>
+                  </Border>
+                </Property>
+              </Properties>
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="check_formAbsence" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="check_formCCA" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="check_formNone" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="check_formSeizure" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="check_formIncident" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="check_formBloodPressure" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="check_formBowelMovement" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="check_formBodyCheck" alignment="0" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                          <Component id="check_formNone" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="check_formCCA" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="check_formBloodPressure" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="check_formBodyCheck" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="check_formBowelMovement" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="check_formIncident" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="check_formSeizure" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="check_formAbsence" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JCheckBox" name="check_formAbsence">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Absence"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JCheckBox" name="check_formCCA">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="CCA"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JCheckBox" name="check_formNone">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="None"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JCheckBox" name="check_formSeizure">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Seizure"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JCheckBox" name="check_formIncident">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Incident"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JCheckBox" name="check_formBodyCheck">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Body Check"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JCheckBox" name="check_formBloodPressure">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Blood Pressure"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JCheckBox" name="check_formBowelMovement">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="BM"/>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Component class="javax.swing.JButton" name="btn_displayCalendar">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Calendar"/>
+              </Properties>
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="panel_myAccount">
@@ -1732,23 +1832,20 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
-                      <Component id="panel_updatePassword" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                      <Component id="panel_updatePassword" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="panel_mySavedNotes" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="33" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="panel_mySavedNotes" max="32767" attributes="0"/>
                           <Component id="panel_updatePassword" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="63" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1788,7 +1885,7 @@
                               <Component id="pass_enterOldPass" max="32767" attributes="0"/>
                               <Component id="btn_confirmNewPass" linkSize="10" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="0" pref="27" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="186" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1815,7 +1912,7 @@
                               <Component id="btn_cancelNewPass" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="btn_confirmNewPass" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="85" max="32767" attributes="0"/>
+                          <EmptySpace pref="265" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1883,7 +1980,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace pref="76" max="32767" attributes="0"/>
+                          <EmptySpace pref="180" max="32767" attributes="0"/>
                           <Component id="btn_openNote" linkSize="14" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="btn_deleteNote" linkSize="14" min="-2" max="-2" attributes="0"/>
@@ -1956,7 +2053,7 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="237" max="32767" attributes="0"/>
+                      <EmptySpace pref="362" max="32767" attributes="0"/>
                       <Component id="panel_fileManaging" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="213" max="-2" attributes="0"/>
                   </Group>
@@ -1967,7 +2064,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="85" max="-2" attributes="0"/>
                       <Component id="panel_fileManaging" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="220" max="32767" attributes="0"/>
+                      <EmptySpace pref="310" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -2047,6 +2144,161 @@
                 </Component>
               </SubComponents>
             </Container>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JPanel" name="panel_timeReview">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+              <JTabbedPaneConstraints tabName="Time Review">
+                <Property name="tabTitle" type="java.lang.String" value="Time Review"/>
+              </JTabbedPaneConstraints>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jScrollPane10" alignment="0" min="-2" pref="285" max="-2" attributes="0"/>
+                          <Component id="lbl_listOfTimes" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="14" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jScrollPane11" alignment="0" min="-2" pref="648" max="-2" attributes="0"/>
+                          <Component id="lbl_noteLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace pref="14" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lbl_listOfTimes" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lbl_noteLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jScrollPane11" alignment="0" min="-2" pref="506" max="-2" attributes="0"/>
+                          <Component id="jScrollPane10" alignment="0" min="-2" pref="506" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Container class="javax.swing.JScrollPane" name="jScrollPane10">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JList" name="jList1">
+                  <Properties>
+                    <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
+                      <StringArray count="62">
+                        <StringItem index="0" value="Item 1"/>
+                        <StringItem index="1" value="Item 2"/>
+                        <StringItem index="2" value="Item 3"/>
+                        <StringItem index="3" value="Item 4"/>
+                        <StringItem index="4" value="Item 5"/>
+                        <StringItem index="5" value="Item 1"/>
+                        <StringItem index="6" value="Item 2"/>
+                        <StringItem index="7" value="Item 3"/>
+                        <StringItem index="8" value="Item 4"/>
+                        <StringItem index="9" value="Item 5Item 1"/>
+                        <StringItem index="10" value="Item 2"/>
+                        <StringItem index="11" value="Item 3"/>
+                        <StringItem index="12" value="Item 4"/>
+                        <StringItem index="13" value="Item 5Item 1"/>
+                        <StringItem index="14" value="Item 2"/>
+                        <StringItem index="15" value="Item 3"/>
+                        <StringItem index="16" value="Item 4"/>
+                        <StringItem index="17" value="Item 5Item 1"/>
+                        <StringItem index="18" value="Item 2"/>
+                        <StringItem index="19" value="Item 3"/>
+                        <StringItem index="20" value="Item 4"/>
+                        <StringItem index="21" value="Item 5Item 1"/>
+                        <StringItem index="22" value="Item 2"/>
+                        <StringItem index="23" value="Item 3"/>
+                        <StringItem index="24" value="Item 4"/>
+                        <StringItem index="25" value="Item 5Item 1"/>
+                        <StringItem index="26" value="Item 2"/>
+                        <StringItem index="27" value="Item 3"/>
+                        <StringItem index="28" value="Item 4"/>
+                        <StringItem index="29" value="Item 5Item 1"/>
+                        <StringItem index="30" value="Item 2"/>
+                        <StringItem index="31" value="Item 3"/>
+                        <StringItem index="32" value="Item 4"/>
+                        <StringItem index="33" value="Item 5Item 1"/>
+                        <StringItem index="34" value="Item 2"/>
+                        <StringItem index="35" value="Item 3"/>
+                        <StringItem index="36" value="Item 4"/>
+                        <StringItem index="37" value="Item 5Item 1"/>
+                        <StringItem index="38" value="Item 2"/>
+                        <StringItem index="39" value="Item 3"/>
+                        <StringItem index="40" value="Item 4"/>
+                        <StringItem index="41" value="Item 5Item 1"/>
+                        <StringItem index="42" value="Item 2"/>
+                        <StringItem index="43" value="Item 3"/>
+                        <StringItem index="44" value="Item 4"/>
+                        <StringItem index="45" value="Item 5Item 1"/>
+                        <StringItem index="46" value="Item 2"/>
+                        <StringItem index="47" value="Item 3"/>
+                        <StringItem index="48" value="Item 4"/>
+                        <StringItem index="49" value="Item 5Item 1"/>
+                        <StringItem index="50" value="Item 2"/>
+                        <StringItem index="51" value="Item 3"/>
+                        <StringItem index="52" value="Item 4"/>
+                        <StringItem index="53" value="Item 5Item 1"/>
+                        <StringItem index="54" value="Item 2"/>
+                        <StringItem index="55" value="Item 3"/>
+                        <StringItem index="56" value="Item 4"/>
+                        <StringItem index="57" value="Item 5Item 1"/>
+                        <StringItem index="58" value="Item 2"/>
+                        <StringItem index="59" value="Item 3"/>
+                        <StringItem index="60" value="Item 4"/>
+                        <StringItem index="61" value="Item 5"/>
+                      </StringArray>
+                    </Property>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                  </AuxValues>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Component class="javax.swing.JLabel" name="lbl_listOfTimes">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Participants:"/>
+              </Properties>
+            </Component>
+            <Container class="javax.swing.JScrollPane" name="jScrollPane11">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JTextArea" name="jTextArea2">
+                  <Properties>
+                    <Property name="columns" type="int" value="20"/>
+                    <Property name="rows" type="int" value="5"/>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Component class="javax.swing.JLabel" name="lbl_noteLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Note:"/>
+              </Properties>
+            </Component>
           </SubComponents>
         </Container>
       </SubComponents>
