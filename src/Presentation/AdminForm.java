@@ -83,7 +83,17 @@ public class AdminForm extends javax.swing.JFrame {
         txt_rejectNoteComment = new javax.swing.JTextArea();
         btn_cancelComments = new javax.swing.JButton();
         btn_acceptAddComments = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        lbl_addComments = new javax.swing.JLabel();
+        dialog_rejectTime = new javax.swing.JDialog();
+        lbl_rejectTime = new javax.swing.JLabel();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        txt_rejectedTime = new javax.swing.JTextArea();
+        btn_cancelReject = new javax.swing.JButton();
+        btn_confirmReject = new javax.swing.JButton();
+        dialog_editTime = new javax.swing.JDialog();
+        lbl_editTime = new javax.swing.JLabel();
+        btn_cancelTimeChange = new javax.swing.JButton();
+        btn_confirmTimeChange = new javax.swing.JButton();
         tabPane_container = new javax.swing.JTabbedPane();
         panel_noteReview = new javax.swing.JPanel();
         lbl_sortNotesBy = new javax.swing.JLabel();
@@ -102,12 +112,9 @@ public class AdminForm extends javax.swing.JFrame {
         list_previousNotes = new javax.swing.JList<String>();
         lbl_previousNotes = new javax.swing.JLabel();
         panel_participants = new javax.swing.JPanel();
-        lbl_participantName = new javax.swing.JLabel();
-        lbl_participantFirstName = new javax.swing.JLabel();
-        lbl_participantLastName = new javax.swing.JLabel();
-        lbl_participantDCP = new javax.swing.JLabel();
-        btn_addParticipant = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
         btn_updateParticipant = new javax.swing.JButton();
+        btn_addParticipant = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         combo_participantSelect = new javax.swing.JComboBox<String>();
         txt_participantID = new javax.swing.JTextField();
@@ -117,31 +124,48 @@ public class AdminForm extends javax.swing.JFrame {
         check_medicaid = new javax.swing.JCheckBox();
         check_selfPay = new javax.swing.JCheckBox();
         check_seizure = new javax.swing.JCheckBox();
+        check_bm = new javax.swing.JCheckBox();
+        lbl_mandatoryForm = new javax.swing.JLabel();
+        check_repositioning = new javax.swing.JCheckBox();
+        lbl_participantDCP = new javax.swing.JLabel();
+        lbl_participantLastName = new javax.swing.JLabel();
+        lbl_participantFirstName = new javax.swing.JLabel();
+        lbl_participantName = new javax.swing.JLabel();
+        lbl_insurance = new javax.swing.JLabel();
+        panel_goals = new javax.swing.JPanel();
         panel_participantGoals = new javax.swing.JPanel();
-        jComboBox1 = new javax.swing.JComboBox<String>();
         jScrollPane7 = new javax.swing.JScrollPane();
         txt_goalDescription = new javax.swing.JTextArea();
         jScrollPane8 = new javax.swing.JScrollPane();
         txt_objectiveDescription = new javax.swing.JTextArea();
         lbl_goalDescription = new javax.swing.JLabel();
         lbl_objective = new javax.swing.JLabel();
-        lbl_insurance = new javax.swing.JLabel();
+        jComboBox2 = new javax.swing.JComboBox<String>();
+        combo_freqWeekMonth = new javax.swing.JComboBox<String>();
+        lbl_frequency = new javax.swing.JLabel();
+        lbl_interval = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<String>();
+        combo_participantSelect1 = new javax.swing.JComboBox<String>();
+        btn_goalAdd = new javax.swing.JButton();
+        btn_goalUpdate = new javax.swing.JButton();
+        btn_goalRemove = new javax.swing.JButton();
         panel_users = new javax.swing.JPanel();
-        btn_newUser = new javax.swing.JButton();
-        combo_selectUser = new javax.swing.JComboBox<String>();
+        jPanel4 = new javax.swing.JPanel();
+        combo_userLevel = new javax.swing.JComboBox<String>();
+        txt_userLastName = new javax.swing.JTextField();
+        txt_userFirstName = new javax.swing.JTextField();
+        txt_userPass = new javax.swing.JTextField();
         txt_userID = new javax.swing.JTextField();
+        combo_selectUser = new javax.swing.JComboBox<String>();
+        btn_updateUser = new javax.swing.JButton();
+        btn_deleteUser = new javax.swing.JButton();
+        btn_newUser = new javax.swing.JButton();
         lbl_userID = new javax.swing.JLabel();
         lbl_userPass = new javax.swing.JLabel();
-        txt_userPass = new javax.swing.JTextField();
-        txt_userFirstName = new javax.swing.JTextField();
-        txt_userLastName = new javax.swing.JTextField();
         lbl_userFirstName = new javax.swing.JLabel();
         lbl_userLastName = new javax.swing.JLabel();
         lbl_userLevel = new javax.swing.JLabel();
-        combo_userLevel = new javax.swing.JComboBox<String>();
         btn_viewUser = new javax.swing.JButton();
-        btn_deleteUser = new javax.swing.JButton();
-        btn_updateUser = new javax.swing.JButton();
         panel_noteWriting = new javax.swing.JPanel();
         panel_noteWritingGoals = new javax.swing.JPanel();
         panel_goal01 = new javax.swing.JPanel();
@@ -195,6 +219,7 @@ public class AdminForm extends javax.swing.JFrame {
         check_formBodyCheck = new javax.swing.JCheckBox();
         check_formBloodPressure = new javax.swing.JCheckBox();
         check_formBowelMovement = new javax.swing.JCheckBox();
+        check_formReposition = new javax.swing.JCheckBox();
         btn_displayCalendar = new javax.swing.JButton();
         panel_myAccount = new javax.swing.JPanel();
         panel_updatePassword = new javax.swing.JPanel();
@@ -224,6 +249,9 @@ public class AdminForm extends javax.swing.JFrame {
         jScrollPane11 = new javax.swing.JScrollPane();
         jTextArea2 = new javax.swing.JTextArea();
         lbl_noteLabel = new javax.swing.JLabel();
+        btn_rejectTime = new javax.swing.JButton();
+        btn_editTime = new javax.swing.JButton();
+        btn_approveTime = new javax.swing.JButton();
 
         dialog_uploadFile.setTitle("Upload File");
         dialog_uploadFile.setMinimumSize(new java.awt.Dimension(562, 430));
@@ -327,7 +355,7 @@ public class AdminForm extends javax.swing.JFrame {
 
         btn_acceptAddComments.setText("Accept");
 
-        jLabel1.setText("jLabel1");
+        lbl_addComments.setText("Comments:");
 
         javax.swing.GroupLayout dialog_addCommentsLayout = new javax.swing.GroupLayout(dialog_addComments.getContentPane());
         dialog_addComments.getContentPane().setLayout(dialog_addCommentsLayout);
@@ -346,14 +374,14 @@ public class AdminForm extends javax.swing.JFrame {
                         .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 405, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(dialog_addCommentsLayout.createSequentialGroup()
                         .addGap(166, 166, 166)
-                        .addComponent(jLabel1)))
+                        .addComponent(lbl_addComments)))
                 .addContainerGap(42, Short.MAX_VALUE))
         );
         dialog_addCommentsLayout.setVerticalGroup(
             dialog_addCommentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(dialog_addCommentsLayout.createSequentialGroup()
                 .addGap(27, 27, 27)
-                .addComponent(jLabel1)
+                .addComponent(lbl_addComments)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -361,6 +389,81 @@ public class AdminForm extends javax.swing.JFrame {
                     .addComponent(btn_cancelComments)
                     .addComponent(btn_acceptAddComments))
                 .addContainerGap(58, Short.MAX_VALUE))
+        );
+
+        lbl_rejectTime.setText("Please explain why the time was rejected.");
+
+        txt_rejectedTime.setColumns(20);
+        txt_rejectedTime.setRows(5);
+        jScrollPane9.setViewportView(txt_rejectedTime);
+
+        btn_cancelReject.setText("Cancel");
+
+        btn_confirmReject.setText("Confirm");
+
+        javax.swing.GroupLayout dialog_rejectTimeLayout = new javax.swing.GroupLayout(dialog_rejectTime.getContentPane());
+        dialog_rejectTime.getContentPane().setLayout(dialog_rejectTimeLayout);
+        dialog_rejectTimeLayout.setHorizontalGroup(
+            dialog_rejectTimeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dialog_rejectTimeLayout.createSequentialGroup()
+                .addGap(68, 68, 68)
+                .addGroup(dialog_rejectTimeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(dialog_rejectTimeLayout.createSequentialGroup()
+                        .addGroup(dialog_rejectTimeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lbl_rejectTime, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jScrollPane9))
+                        .addContainerGap(72, Short.MAX_VALUE))
+                    .addGroup(dialog_rejectTimeLayout.createSequentialGroup()
+                        .addComponent(btn_cancelReject)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_confirmReject)
+                        .addGap(63, 63, 63))))
+        );
+        dialog_rejectTimeLayout.setVerticalGroup(
+            dialog_rejectTimeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dialog_rejectTimeLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(lbl_rejectTime)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addGroup(dialog_rejectTimeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_cancelReject)
+                    .addComponent(btn_confirmReject))
+                .addContainerGap(68, Short.MAX_VALUE))
+        );
+
+        lbl_editTime.setText("Edit times for arrival and/or departure.");
+
+        btn_cancelTimeChange.setText("Cancel");
+
+        btn_confirmTimeChange.setText("Confirm");
+
+        javax.swing.GroupLayout dialog_editTimeLayout = new javax.swing.GroupLayout(dialog_editTime.getContentPane());
+        dialog_editTime.getContentPane().setLayout(dialog_editTimeLayout);
+        dialog_editTimeLayout.setHorizontalGroup(
+            dialog_editTimeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dialog_editTimeLayout.createSequentialGroup()
+                .addGap(64, 64, 64)
+                .addComponent(lbl_editTime)
+                .addContainerGap(93, Short.MAX_VALUE))
+            .addGroup(dialog_editTimeLayout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(btn_cancelTimeChange)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btn_confirmTimeChange)
+                .addGap(53, 53, 53))
+        );
+        dialog_editTimeLayout.setVerticalGroup(
+            dialog_editTimeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dialog_editTimeLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(lbl_editTime)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 175, Short.MAX_VALUE)
+                .addGroup(dialog_editTimeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_cancelTimeChange)
+                    .addComponent(btn_confirmTimeChange))
+                .addGap(54, 54, 54))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -493,14 +596,13 @@ public class AdminForm extends javax.swing.JFrame {
 
         panel_participants.setPreferredSize(new java.awt.Dimension(984, 554));
 
-        lbl_participantName.setText("Participant ID:");
-
-        lbl_participantFirstName.setText("First Name:");
-        lbl_participantFirstName.setName(""); // NOI18N
-
-        lbl_participantLastName.setText("Last Name:");
-
-        lbl_participantDCP.setText("Primary DCP:");
+        btn_updateParticipant.setText("Update Participant");
+        btn_updateParticipant.setToolTipText("Update the values of a selected participant.");
+        btn_updateParticipant.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_updateParticipantActionPerformed(evt);
+            }
+        });
 
         btn_addParticipant.setText("Add Participant");
         btn_addParticipant.setToolTipText("Add the values you typed as a new participant.");
@@ -509,9 +611,6 @@ public class AdminForm extends javax.swing.JFrame {
                 btn_addParticipantActionPerformed(evt);
             }
         });
-
-        btn_updateParticipant.setText("Update Participant");
-        btn_updateParticipant.setToolTipText("Update the values of a selected participant.");
 
         combo_participantSelect.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select A Participant" }));
         combo_participantSelect.addActionListener(new java.awt.event.ActionListener() {
@@ -536,7 +635,13 @@ public class AdminForm extends javax.swing.JFrame {
             }
         });
 
-        check_seizure.setText("Experiences Seizures");
+        check_seizure.setText("Seizures");
+
+        check_bm.setText("BM");
+
+        lbl_mandatoryForm.setText("Mandatory Forms");
+
+        check_repositioning.setText("Repositioning Form");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -554,8 +659,14 @@ public class AdminForm extends javax.swing.JFrame {
                     .addComponent(txt_participantFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txt_participantLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(combo_selectDCP, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(check_seizure))
+                    .addComponent(check_seizure)
+                    .addComponent(check_bm)
+                    .addComponent(check_repositioning))
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(lbl_mandatoryForm)
+                .addGap(49, 49, 49))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -573,12 +684,96 @@ public class AdminForm extends javax.swing.JFrame {
                 .addComponent(txt_participantLastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(combo_selectDCP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(11, 11, 11)
+                .addComponent(lbl_mandatoryForm)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(check_seizure)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(check_bm)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(check_repositioning)
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Goal 1", "Goal 2", "Goal 3", "Goal 4", "Goal 5" }));
+        lbl_participantDCP.setText("Primary DCP:");
+
+        lbl_participantLastName.setText("Last Name:");
+
+        lbl_participantFirstName.setText("First Name:");
+        lbl_participantFirstName.setName(""); // NOI18N
+
+        lbl_participantName.setText("Participant ID:");
+
+        lbl_insurance.setText("Insurance:");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btn_addParticipant)
+                    .addComponent(lbl_participantName)
+                    .addComponent(lbl_participantFirstName)
+                    .addComponent(lbl_participantLastName)
+                    .addComponent(lbl_participantDCP)
+                    .addComponent(lbl_insurance))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addComponent(btn_updateParticipant)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(16, 16, 16))))
+        );
+
+        jPanel3Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btn_addParticipant, btn_updateParticipant});
+
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(68, 68, 68)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(110, 110, 110)
+                        .addComponent(lbl_insurance)
+                        .addGap(18, 18, 18)
+                        .addComponent(lbl_participantName)
+                        .addGap(16, 16, 16)
+                        .addComponent(lbl_participantFirstName)
+                        .addGap(16, 16, 16)
+                        .addComponent(lbl_participantLastName)
+                        .addGap(15, 15, 15)
+                        .addComponent(lbl_participantDCP)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_updateParticipant)
+                    .addComponent(btn_addParticipant))
+                .addGap(33, 33, 33))
+        );
+
+        javax.swing.GroupLayout panel_participantsLayout = new javax.swing.GroupLayout(panel_participants);
+        panel_participants.setLayout(panel_participantsLayout);
+        panel_participantsLayout.setHorizontalGroup(
+            panel_participantsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_participantsLayout.createSequentialGroup()
+                .addGap(297, 297, 297)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(261, Short.MAX_VALUE))
+        );
+        panel_participantsLayout.setVerticalGroup(
+            panel_participantsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_participantsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(28, 28, 28))
+        );
+
+        tabPane_container.addTab("Participants", panel_participants);
 
         txt_goalDescription.setColumns(20);
         txt_goalDescription.setRows(5);
@@ -592,98 +787,146 @@ public class AdminForm extends javax.swing.JFrame {
 
         lbl_objective.setText("Objective:");
 
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15" }));
+
+        combo_freqWeekMonth.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select", "Week", "Month" }));
+
+        lbl_frequency.setText("Frequency:");
+
+        lbl_interval.setText("Interval:");
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Goal 1", "Goal 2", "Goal 3", "Goal 4", "Goal 5" }));
+
+        combo_participantSelect1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select A Participant" }));
+        combo_participantSelect1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                combo_participantSelect1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panel_participantGoalsLayout = new javax.swing.GroupLayout(panel_participantGoals);
         panel_participantGoals.setLayout(panel_participantGoalsLayout);
         panel_participantGoalsLayout.setHorizontalGroup(
             panel_participantGoalsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_participantGoalsLayout.createSequentialGroup()
-                .addGroup(panel_participantGoalsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 297, Short.MAX_VALUE)
-                    .addComponent(jScrollPane7, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(panel_participantGoalsLayout.createSequentialGroup()
+                .addGroup(panel_participantGoalsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane7)
+                    .addComponent(jScrollPane8)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panel_participantGoalsLayout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(panel_participantGoalsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panel_participantGoalsLayout.createSequentialGroup()
-                                .addGap(67, 67, 67)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(panel_participantGoalsLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(panel_participantGoalsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lbl_goalDescription)
-                                    .addComponent(lbl_objective))))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                            .addComponent(lbl_goalDescription)
+                            .addComponent(lbl_objective))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(panel_participantGoalsLayout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(lbl_frequency)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                        .addComponent(lbl_interval)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(combo_freqWeekMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12)))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_participantGoalsLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(panel_participantGoalsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(combo_participantSelect1, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(81, 81, 81))
         );
+
+        panel_participantGoalsLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {combo_participantSelect1, jComboBox1});
+
         panel_participantGoalsLayout.setVerticalGroup(
             panel_participantGoalsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_participantGoalsLayout.createSequentialGroup()
-                .addContainerGap()
+                .addComponent(combo_participantSelect1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                .addGap(28, 28, 28)
+                .addGroup(panel_participantGoalsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(combo_freqWeekMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panel_participantGoalsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lbl_frequency)
+                        .addComponent(lbl_interval)))
+                .addGap(18, 18, 18)
                 .addComponent(lbl_goalDescription)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lbl_objective)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
-        lbl_insurance.setText("Insurance:");
+        panel_participantGoalsLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {combo_participantSelect1, jComboBox1});
 
-        javax.swing.GroupLayout panel_participantsLayout = new javax.swing.GroupLayout(panel_participants);
-        panel_participants.setLayout(panel_participantsLayout);
-        panel_participantsLayout.setHorizontalGroup(
-            panel_participantsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_participantsLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(panel_participantsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panel_participantsLayout.createSequentialGroup()
-                        .addComponent(btn_addParticipant)
-                        .addGap(18, 18, 18)
-                        .addComponent(btn_updateParticipant))
-                    .addGroup(panel_participantsLayout.createSequentialGroup()
-                        .addGroup(panel_participantsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbl_participantName)
-                            .addComponent(lbl_participantFirstName)
-                            .addComponent(lbl_participantLastName)
-                            .addComponent(lbl_participantDCP)
-                            .addComponent(lbl_insurance))
-                        .addGap(67, 67, 67)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(58, 58, 58)
+        btn_goalAdd.setText("Add");
+
+        btn_goalUpdate.setText("Update");
+
+        btn_goalRemove.setText("Remove");
+
+        javax.swing.GroupLayout panel_goalsLayout = new javax.swing.GroupLayout(panel_goals);
+        panel_goals.setLayout(panel_goalsLayout);
+        panel_goalsLayout.setHorizontalGroup(
+            panel_goalsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_goalsLayout.createSequentialGroup()
+                .addGap(275, 275, 275)
+                .addGroup(panel_goalsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(panel_goalsLayout.createSequentialGroup()
+                        .addComponent(btn_goalAdd)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_goalUpdate)
+                        .addGap(70, 70, 70)
+                        .addComponent(btn_goalRemove))
+                    .addComponent(panel_participantGoals, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(278, Short.MAX_VALUE))
+        );
+        panel_goalsLayout.setVerticalGroup(
+            panel_goalsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_goalsLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
                 .addComponent(panel_participantGoals, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(97, 97, 97))
+                .addGap(18, 18, 18)
+                .addGroup(panel_goalsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_goalAdd)
+                    .addComponent(btn_goalUpdate)
+                    .addComponent(btn_goalRemove))
+                .addContainerGap(92, Short.MAX_VALUE))
         );
 
-        panel_participantsLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btn_addParticipant, btn_updateParticipant});
+        tabPane_container.addTab("Goals", panel_goals);
 
-        panel_participantsLayout.setVerticalGroup(
-            panel_participantsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel_participantsLayout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addGroup(panel_participantsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panel_participantsLayout.createSequentialGroup()
-                        .addGap(47, 47, 47)
-                        .addComponent(lbl_insurance)
-                        .addGap(18, 18, 18)
-                        .addComponent(lbl_participantName)
-                        .addGap(16, 16, 16)
-                        .addComponent(lbl_participantFirstName)
-                        .addGap(16, 16, 16)
-                        .addComponent(lbl_participantLastName)
-                        .addGap(15, 15, 15)
-                        .addComponent(lbl_participantDCP))
-                    .addComponent(panel_participantGoals, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 135, Short.MAX_VALUE)
-                .addGroup(panel_participantsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_addParticipant)
-                    .addComponent(btn_updateParticipant))
-                .addGap(28, 28, 28))
-        );
+        combo_userLevel.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select A User Level", "Admin", "DCP", "Reviewer", "Auditor" }));
 
-        tabPane_container.addTab("Participants", panel_participants);
+        combo_selectUser.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select User Or Create New" }));
+        combo_selectUser.setToolTipText("");
+        combo_selectUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                combo_selectUserActionPerformed(evt);
+            }
+        });
+
+        btn_updateUser.setText("Update");
+        btn_updateUser.setToolTipText("Update the properties of the selected user.");
+        btn_updateUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_updateUserActionPerformed(evt);
+            }
+        });
+
+        btn_deleteUser.setText("Delete");
+        btn_deleteUser.setToolTipText("Delete the selected user.");
+        btn_deleteUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_deleteUserActionPerformed(evt);
+            }
+        });
 
         btn_newUser.setText("New");
         btn_newUser.setToolTipText("Create a new user from the attributes you typed.");
@@ -698,14 +941,6 @@ public class AdminForm extends javax.swing.JFrame {
             }
         });
 
-        combo_selectUser.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select User Or Create New" }));
-        combo_selectUser.setToolTipText("");
-        combo_selectUser.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                combo_selectUserActionPerformed(evt);
-            }
-        });
-
         lbl_userID.setText("User ID:");
 
         lbl_userPass.setText("Password:");
@@ -716,8 +951,6 @@ public class AdminForm extends javax.swing.JFrame {
 
         lbl_userLevel.setText("User Level:");
 
-        combo_userLevel.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select A User Level", "Admin", "DCP", "Reviewer", "Auditor" }));
-
         btn_viewUser.setText("Clear");
         btn_viewUser.setToolTipText("Display the attributes of the selected user.");
         btn_viewUser.addActionListener(new java.awt.event.ActionListener() {
@@ -726,45 +959,32 @@ public class AdminForm extends javax.swing.JFrame {
             }
         });
 
-        btn_deleteUser.setText("Delete");
-        btn_deleteUser.setToolTipText("Delete the selected user.");
-        btn_deleteUser.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_deleteUserActionPerformed(evt);
-            }
-        });
-
-        btn_updateUser.setText("Update");
-        btn_updateUser.setToolTipText("Update the properties of the selected user.");
-        btn_updateUser.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_updateUserActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout panel_usersLayout = new javax.swing.GroupLayout(panel_users);
-        panel_users.setLayout(panel_usersLayout);
-        panel_usersLayout.setHorizontalGroup(
-            panel_usersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel_usersLayout.createSequentialGroup()
-                .addGap(219, 219, 219)
-                .addGroup(panel_usersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_usersLayout.createSequentialGroup()
-                        .addGroup(panel_usersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbl_userID)
-                            .addComponent(lbl_userPass)
-                            .addComponent(lbl_userFirstName)
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lbl_userID)
+                                    .addComponent(lbl_userPass)
+                                    .addComponent(lbl_userLevel))
+                                .addGap(4, 4, 4))
                             .addComponent(lbl_userLastName)
-                            .addComponent(lbl_userLevel))
-                        .addGap(42, 42, 42)
-                        .addGroup(panel_usersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lbl_userFirstName))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txt_userLastName)
                             .addComponent(txt_userFirstName)
                             .addComponent(combo_selectUser, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(txt_userID)
                             .addComponent(txt_userPass)
                             .addComponent(combo_userLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_usersLayout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                         .addComponent(btn_viewUser, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btn_newUser, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -772,43 +992,60 @@ public class AdminForm extends javax.swing.JFrame {
                         .addComponent(btn_deleteUser)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btn_updateUser, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(386, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
-        panel_usersLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btn_deleteUser, btn_newUser, btn_updateUser, btn_viewUser});
+        jPanel4Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btn_deleteUser, btn_newUser, btn_updateUser, btn_viewUser});
 
-        panel_usersLayout.setVerticalGroup(
-            panel_usersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_usersLayout.createSequentialGroup()
-                .addGap(32, 32, 32)
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addGap(31, 31, 31)
                 .addComponent(combo_selectUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(panel_usersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txt_userID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbl_userID))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panel_usersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_userPass)
-                    .addComponent(txt_userPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txt_userPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbl_userPass))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panel_usersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txt_userFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbl_userFirstName))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panel_usersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txt_userLastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbl_userLastName))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panel_usersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_userLevel)
-                    .addComponent(combo_userLevel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(combo_userLevel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbl_userLevel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 201, Short.MAX_VALUE)
-                .addGroup(panel_usersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_newUser)
                     .addComponent(btn_deleteUser)
                     .addComponent(btn_updateUser)
                     .addComponent(btn_viewUser))
-                .addGap(92, 92, 92))
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout panel_usersLayout = new javax.swing.GroupLayout(panel_users);
+        panel_users.setLayout(panel_usersLayout);
+        panel_usersLayout.setHorizontalGroup(
+            panel_usersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_usersLayout.createSequentialGroup()
+                .addContainerGap(310, Short.MAX_VALUE)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(283, 283, 283))
+        );
+        panel_usersLayout.setVerticalGroup(
+            panel_usersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_usersLayout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(51, Short.MAX_VALUE))
         );
 
         tabPane_container.addTab("Users", panel_users);
@@ -1161,6 +1398,8 @@ public class AdminForm extends javax.swing.JFrame {
 
         check_formBowelMovement.setText("BM");
 
+        check_formReposition.setText("Repositioning");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -1173,6 +1412,7 @@ public class AdminForm extends javax.swing.JFrame {
             .addComponent(check_formBloodPressure)
             .addComponent(check_formBowelMovement)
             .addComponent(check_formBodyCheck)
+            .addComponent(check_formReposition)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1188,6 +1428,8 @@ public class AdminForm extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(check_formBowelMovement)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(check_formReposition)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(check_formIncident)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(check_formSeizure)
@@ -1475,17 +1717,37 @@ public class AdminForm extends javax.swing.JFrame {
 
         lbl_noteLabel.setText("Note:");
 
+        btn_rejectTime.setText("Reject");
+        btn_rejectTime.setToolTipText("Reject the note.");
+        btn_rejectTime.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_rejectTimeMouseClicked(evt);
+            }
+        });
+
+        btn_editTime.setText("Edit");
+        btn_editTime.setToolTipText("Add the comments you've written below to the accepted or rejected note.");
+
+        btn_approveTime.setText("Approve");
+        btn_approveTime.setToolTipText("Approve of the note.");
+
         javax.swing.GroupLayout panel_timeReviewLayout = new javax.swing.GroupLayout(panel_timeReview);
         panel_timeReview.setLayout(panel_timeReviewLayout);
         panel_timeReviewLayout.setHorizontalGroup(
             panel_timeReviewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel_timeReviewLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_timeReviewLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panel_timeReviewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbl_listOfTimes))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
                 .addGroup(panel_timeReviewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panel_timeReviewLayout.createSequentialGroup()
+                        .addComponent(btn_rejectTime)
+                        .addGap(24, 24, 24)
+                        .addComponent(btn_editTime)
+                        .addGap(18, 18, 18)
+                        .addComponent(btn_approveTime))
                     .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 648, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbl_noteLabel))
                 .addContainerGap())
@@ -1498,10 +1760,15 @@ public class AdminForm extends javax.swing.JFrame {
                     .addComponent(lbl_listOfTimes)
                     .addComponent(lbl_noteLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(panel_timeReviewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                .addGroup(panel_timeReviewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane11)
+                    .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 415, Short.MAX_VALUE))
+                .addGap(29, 29, 29)
+                .addGroup(panel_timeReviewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_approveTime)
+                    .addComponent(btn_rejectTime)
+                    .addComponent(btn_editTime))
+                .addGap(39, 39, 39))
         );
 
         tabPane_container.addTab("Time Review", panel_timeReview);
@@ -1642,6 +1909,7 @@ public class AdminForm extends javax.swing.JFrame {
     private void check_selfPayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_check_selfPayActionPerformed
         pl.setInsurance(check_selfPay.getText());
         check_medicaid.setSelected(false);
+        txt_participantID.setText(null);
         txt_participantID.setEnabled(false);
         System.out.println(check_selfPay.getText());
     }//GEN-LAST:event_check_selfPayActionPerformed
@@ -1677,8 +1945,79 @@ public class AdminForm extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_addParticipantActionPerformed
 
     private void combo_participantSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combo_participantSelectActionPerformed
+        System.out.println("Participant" + combo_participantSelect.getSelectedItem());
+        ParticipantLogic part = new ParticipantLogic();
+        Object participant =  combo_participantSelect.getSelectedItem();
+        if(participant != null && !participant.equals("Select A Participant")){
+            try {
+                String[] partArray = new String[2];
+                String selectedParticipant = (String) participant;
+                partArray = selectedParticipant.split(":");
+                int ID = Integer.parseInt(partArray[0]);
+                System.out.println(partArray[0]);
+                part = part.select(ID);
+                txt_participantFirstName.setText(part.getParticipantFirstName());
+                txt_participantLastName.setText(part.getParticipantLastName());
+                switch (part.getInsurance()) {
+                    case "Medicaid":
+                        check_selfPay.setSelected(false);
+                        check_medicaid.setSelected(true);
+                        txt_participantID.setEnabled(true);
+                        txt_participantID.setText(part.getMedicaidNumber());
+                        break;
+                    case "Self-Pay":
+                        check_selfPay.setSelected(true);
+                        check_medicaid.setSelected(false);
+                        txt_participantID.setText(null);
+                        txt_participantID.setEnabled(false);
+                        break;
+                }
+                pl = part;
+            } catch (SQLException ex) {
+                Logger.getLogger(AdminForm.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(AdminForm.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+        }
+        else{
+            pl = null;  //Create dialog box for exception this line creates prompting user to select a Participant before clicking update
+        }
         
     }//GEN-LAST:event_combo_participantSelectActionPerformed
+
+    private void combo_participantSelect1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combo_participantSelect1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_combo_participantSelect1ActionPerformed
+
+    private void btn_rejectTimeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_rejectTimeMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_rejectTimeMouseClicked
+
+    private void btn_updateParticipantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_updateParticipantActionPerformed
+        try {
+            String insurance = null;
+            if(check_medicaid.isSelected()){
+                insurance = check_medicaid.getText();
+            }
+            else if(check_selfPay.isSelected()){
+                insurance = check_selfPay.getText();
+            }
+            else if(!check_medicaid.isSelected() && !check_selfPay.isSelected()){
+                System.out.println("Insurance type must be selected!");//Make Dialog or some sort of feedback for this.
+            }
+            
+            String placeholder = (String) combo_participantSelect.getSelectedItem();
+            int id = Integer.parseInt(placeholder.split(":")[0]);
+            pl.updateParticipant(txt_participantID.getText(), txt_participantFirstName.getText(), txt_participantLastName.getText(),
+                    insurance, id);
+            System.out.println(pl.getParticipantFirstName());
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminForm.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(AdminForm.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btn_updateParticipantActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1758,7 +2097,7 @@ public class AdminForm extends javax.swing.JFrame {
         String participantInfo;
         System.out.println(list.size());
         for(int i = 0; i < list.size(); i++){
-            participantInfo = list.get(i).getParticipantID() + list.get(i).getParticipantFirstName() + list.get(i).getParticipantLastName();
+            participantInfo = list.get(i).getParticipantID() + ": "+ list.get(i).getParticipantFirstName() + list.get(i).getParticipantLastName();
             combo_participantSelect.addItem(participantInfo);
         }
     }
@@ -1778,17 +2117,27 @@ public class AdminForm extends javax.swing.JFrame {
     private javax.swing.JButton btn_appendGoal4;
     private javax.swing.JButton btn_appendGoal5;
     private javax.swing.JButton btn_approveNote;
+    private javax.swing.JButton btn_approveTime;
     private javax.swing.JButton btn_cancelComments;
     private javax.swing.JButton btn_cancelNewPass;
+    private javax.swing.JButton btn_cancelReject;
+    private javax.swing.JButton btn_cancelTimeChange;
     private javax.swing.JButton btn_confirmNewPass;
+    private javax.swing.JButton btn_confirmReject;
+    private javax.swing.JButton btn_confirmTimeChange;
     private javax.swing.JButton btn_deleteNote;
     private javax.swing.JButton btn_deleteUser;
     private javax.swing.JButton btn_displayCalendar;
     private javax.swing.JButton btn_downloadFiles;
     private javax.swing.JButton btn_editNote;
+    private javax.swing.JButton btn_editTime;
+    private javax.swing.JButton btn_goalAdd;
+    private javax.swing.JButton btn_goalRemove;
+    private javax.swing.JButton btn_goalUpdate;
     private javax.swing.JButton btn_newUser;
     private javax.swing.JButton btn_openNote;
     private javax.swing.JButton btn_rejectNote;
+    private javax.swing.JButton btn_rejectTime;
     private javax.swing.JButton btn_saveNote;
     private javax.swing.JButton btn_sortByDate;
     private javax.swing.JButton btn_sortByParticipant;
@@ -1800,6 +2149,7 @@ public class AdminForm extends javax.swing.JFrame {
     private javax.swing.JButton btn_updateUser;
     private javax.swing.JButton btn_uploadFile;
     private javax.swing.JButton btn_viewUser;
+    private javax.swing.JCheckBox check_bm;
     private javax.swing.JCheckBox check_formAbsence;
     private javax.swing.JCheckBox check_formBloodPressure;
     private javax.swing.JCheckBox check_formBodyCheck;
@@ -1807,12 +2157,16 @@ public class AdminForm extends javax.swing.JFrame {
     private javax.swing.JCheckBox check_formCCA;
     private javax.swing.JCheckBox check_formIncident;
     private javax.swing.JCheckBox check_formNone;
+    private javax.swing.JCheckBox check_formReposition;
     private javax.swing.JCheckBox check_formSeizure;
     private javax.swing.JCheckBox check_medicaid;
+    private javax.swing.JCheckBox check_repositioning;
     private javax.swing.JCheckBox check_seizure;
     private javax.swing.JCheckBox check_selfPay;
+    private javax.swing.JComboBox<String> combo_freqWeekMonth;
     private javax.swing.JComboBox<String> combo_noteChooseParticipant;
     private javax.swing.JComboBox<String> combo_participantSelect;
+    private javax.swing.JComboBox<String> combo_participantSelect1;
     private javax.swing.JComboBox<String> combo_promptingLevel1;
     private javax.swing.JComboBox<String> combo_promptingLevel2;
     private javax.swing.JComboBox<String> combo_promptingLevel3;
@@ -1824,15 +2178,19 @@ public class AdminForm extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> combo_userLevel;
     private javax.swing.JDialog dialog_addComments;
     private javax.swing.JDialog dialog_downloadFile;
+    private javax.swing.JDialog dialog_editTime;
+    private javax.swing.JDialog dialog_rejectTime;
     private javax.swing.JDialog dialog_submitNote;
     private javax.swing.JDialog dialog_uploadFile;
     private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JFileChooser jFileChooser1;
     private javax.swing.JFileChooser jFileChooser2;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
@@ -1843,19 +2201,25 @@ public class AdminForm extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JScrollPane jsp_goalDescription1;
     private javax.swing.JScrollPane jsp_goalDescription2;
     private javax.swing.JScrollPane jsp_goalDescription3;
     private javax.swing.JScrollPane jsp_goalDescription4;
     private javax.swing.JScrollPane jsp_goalDescription5;
+    private javax.swing.JLabel lbl_addComments;
     private javax.swing.JLabel lbl_confirmNewPassword;
     private javax.swing.JLabel lbl_downloadFiles;
+    private javax.swing.JLabel lbl_editTime;
     private javax.swing.JLabel lbl_enterNewPassword;
     private javax.swing.JLabel lbl_enterOldPassword;
+    private javax.swing.JLabel lbl_frequency;
     private javax.swing.JLabel lbl_goalDescription;
     private javax.swing.JLabel lbl_insurance;
+    private javax.swing.JLabel lbl_interval;
     private javax.swing.JLabel lbl_listOfTimes;
+    private javax.swing.JLabel lbl_mandatoryForm;
     private javax.swing.JLabel lbl_noteChooseParticipant;
     private javax.swing.JLabel lbl_noteLabel;
     private javax.swing.JLabel lbl_noteSubmissionInstructions;
@@ -1867,6 +2231,7 @@ public class AdminForm extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_participantLastName;
     private javax.swing.JLabel lbl_participantName;
     private javax.swing.JLabel lbl_previousNotes;
+    private javax.swing.JLabel lbl_rejectTime;
     private javax.swing.JLabel lbl_selectNoteToOpen;
     private javax.swing.JLabel lbl_sortNotesBy;
     private javax.swing.JLabel lbl_uploadFiles;
@@ -1884,6 +2249,7 @@ public class AdminForm extends javax.swing.JFrame {
     private javax.swing.JPanel panel_goal03;
     private javax.swing.JPanel panel_goal04;
     private javax.swing.JPanel panel_goal05;
+    private javax.swing.JPanel panel_goals;
     private javax.swing.JPanel panel_myAccount;
     private javax.swing.JPanel panel_mySavedNotes;
     private javax.swing.JPanel panel_noteReview;
@@ -1922,6 +2288,7 @@ public class AdminForm extends javax.swing.JFrame {
     private javax.swing.JTextField txt_participantID;
     private javax.swing.JTextField txt_participantLastName;
     private javax.swing.JTextArea txt_rejectNoteComment;
+    private javax.swing.JTextArea txt_rejectedTime;
     private javax.swing.JTextField txt_userFirstName;
     private javax.swing.JTextField txt_userID;
     private javax.swing.JTextField txt_userLastName;

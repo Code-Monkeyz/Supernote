@@ -188,7 +188,7 @@
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="166" max="-2" attributes="0"/>
-                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                          <Component id="lbl_addComments" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace pref="42" max="32767" attributes="0"/>
@@ -199,7 +199,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                  <Component id="lbl_addComments" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jScrollPane5" min="-2" pref="207" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -239,9 +239,136 @@
             <Property name="text" type="java.lang.String" value="Accept"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel1">
+        <Component class="javax.swing.JLabel" name="lbl_addComments">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jLabel1"/>
+            <Property name="text" type="java.lang.String" value="Comments:"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JDialog" name="dialog_rejectTime">
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="lbl_rejectTime" max="32767" attributes="0"/>
+                              <Component id="jScrollPane9" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace pref="72" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="btn_cancelReject" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="btn_confirmReject" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="lbl_rejectTime" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="jScrollPane9" min="-2" pref="108" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="btn_cancelReject" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btn_confirmReject" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="68" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="lbl_rejectTime">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Please explain why the time was rejected."/>
+          </Properties>
+        </Component>
+        <Container class="javax.swing.JScrollPane" name="jScrollPane9">
+          <AuxValues>
+            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+          </AuxValues>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+          <SubComponents>
+            <Component class="javax.swing.JTextArea" name="txt_rejectedTime">
+              <Properties>
+                <Property name="columns" type="int" value="20"/>
+                <Property name="rows" type="int" value="5"/>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Component class="javax.swing.JButton" name="btn_cancelReject">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Cancel"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="btn_confirmReject">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Confirm"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JDialog" name="dialog_editTime">
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
+                  <Component id="lbl_editTime" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="93" max="32767" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                  <Component id="btn_cancelTimeChange" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="btn_confirmTimeChange" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                  <Component id="lbl_editTime" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="175" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="btn_cancelTimeChange" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btn_confirmTimeChange" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="lbl_editTime">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Edit times for arrival and/or departure."/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="btn_cancelTimeChange">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Cancel"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="btn_confirmTimeChange">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Confirm"/>
           </Properties>
         </Component>
       </SubComponents>
@@ -514,274 +641,386 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="38" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="btn_addParticipant" linkSize="11" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="btn_updateParticipant" linkSize="11" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lbl_participantName" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lbl_participantFirstName" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lbl_participantLastName" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lbl_participantDCP" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lbl_insurance" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
-                              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
-                      <Component id="panel_participantGoals" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="97" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="297" max="-2" attributes="0"/>
+                      <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="261" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
-                              <Component id="lbl_insurance" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="lbl_participantName" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
-                              <Component id="lbl_participantFirstName" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
-                              <Component id="lbl_participantLastName" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                              <Component id="lbl_participantDCP" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="panel_participantGoals" min="-2" max="-2" attributes="0"/>
-                          <Component id="jPanel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace pref="135" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="btn_addParticipant" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btn_updateParticipant" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jPanel3" max="32767" attributes="0"/>
                       <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="lbl_participantName">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Participant ID:"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="lbl_participantFirstName">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="First Name:"/>
-                <Property name="name" type="java.lang.String" value="" noResource="true"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="lbl_participantLastName">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Last Name:"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="lbl_participantDCP">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Primary DCP:"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JButton" name="btn_addParticipant">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Add Participant"/>
-                <Property name="toolTipText" type="java.lang.String" value="Add the values you typed as a new participant."/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_addParticipantActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="btn_updateParticipant">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Update Participant"/>
-                <Property name="toolTipText" type="java.lang.String" value="Update the values of a selected participant."/>
-              </Properties>
-            </Component>
-            <Container class="javax.swing.JPanel" name="jPanel1">
+            <Container class="javax.swing.JPanel" name="jPanel3">
 
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Component id="check_medicaid" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="check_selfPay" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="combo_participantSelect" min="-2" pref="214" max="-2" attributes="0"/>
-                              <Component id="txt_participantID" min="-2" pref="214" max="-2" attributes="0"/>
-                              <Component id="txt_participantFirstName" min="-2" pref="214" max="-2" attributes="0"/>
-                              <Component id="txt_participantLastName" min="-2" pref="214" max="-2" attributes="0"/>
-                              <Component id="combo_selectDCP" min="-2" pref="214" max="-2" attributes="0"/>
-                              <Component id="check_seizure" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="btn_addParticipant" linkSize="11" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lbl_participantName" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lbl_participantFirstName" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lbl_participantLastName" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lbl_participantDCP" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lbl_insurance" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="btn_updateParticipant" linkSize="11" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="combo_participantSelect" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="check_medicaid" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="check_selfPay" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
+                                  <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="110" max="-2" attributes="0"/>
+                                  <Component id="lbl_insurance" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="lbl_participantName" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                                  <Component id="lbl_participantFirstName" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                                  <Component id="lbl_participantLastName" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                                  <Component id="lbl_participantDCP" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="txt_participantID" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="txt_participantFirstName" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="txt_participantLastName" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="combo_selectDCP" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="check_seizure" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="18" max="32767" attributes="0"/>
+                          <EmptySpace pref="71" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="btn_updateParticipant" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btn_addParticipant" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JComboBox" name="combo_participantSelect">
+                <Component class="javax.swing.JButton" name="btn_updateParticipant">
                   <Properties>
-                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="1">
-                        <StringItem index="0" value="Select A Participant"/>
-                      </StringArray>
-                    </Property>
+                    <Property name="text" type="java.lang.String" value="Update Participant"/>
+                    <Property name="toolTipText" type="java.lang.String" value="Update the values of a selected participant."/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="combo_participantSelectActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_updateParticipantActionPerformed"/>
                   </Events>
-                  <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-                  </AuxValues>
                 </Component>
-                <Component class="javax.swing.JTextField" name="txt_participantID">
-                </Component>
-                <Component class="javax.swing.JTextField" name="txt_participantFirstName">
-                </Component>
-                <Component class="javax.swing.JTextField" name="txt_participantLastName">
-                </Component>
-                <Component class="javax.swing.JComboBox" name="combo_selectDCP">
+                <Component class="javax.swing.JButton" name="btn_addParticipant">
                   <Properties>
-                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="6">
-                        <StringItem index="0" value="Select DCP"/>
-                        <StringItem index="1" value="-"/>
-                        <StringItem index="2" value="-"/>
-                        <StringItem index="3" value="-"/>
-                        <StringItem index="4" value="-"/>
-                        <StringItem index="5" value="-"/>
-                      </StringArray>
-                    </Property>
-                  </Properties>
-                  <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-                  </AuxValues>
-                </Component>
-                <Component class="javax.swing.JCheckBox" name="check_medicaid">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Medicaid"/>
+                    <Property name="text" type="java.lang.String" value="Add Participant"/>
+                    <Property name="toolTipText" type="java.lang.String" value="Add the values you typed as a new participant."/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="check_medicaidActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_addParticipantActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JCheckBox" name="check_selfPay">
+                <Container class="javax.swing.JPanel" name="jPanel1">
+
+                  <Layout>
+                    <DimensionLayout dim="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="check_medicaid" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="check_selfPay" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="combo_participantSelect" min="-2" pref="214" max="-2" attributes="0"/>
+                                  <Component id="txt_participantID" min="-2" pref="214" max="-2" attributes="0"/>
+                                  <Component id="txt_participantFirstName" min="-2" pref="214" max="-2" attributes="0"/>
+                                  <Component id="txt_participantLastName" min="-2" pref="214" max="-2" attributes="0"/>
+                                  <Component id="combo_selectDCP" min="-2" pref="214" max="-2" attributes="0"/>
+                                  <Component id="check_seizure" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="check_bm" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="check_repositioning" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <Component id="lbl_mandatoryForm" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                    <DimensionLayout dim="1">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="combo_participantSelect" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="check_medicaid" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="check_selfPay" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="txt_participantID" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="txt_participantFirstName" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="txt_participantLastName" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="combo_selectDCP" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                              <Component id="lbl_mandatoryForm" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="check_seizure" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="check_bm" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="check_repositioning" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace pref="14" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                  </Layout>
+                  <SubComponents>
+                    <Component class="javax.swing.JComboBox" name="combo_participantSelect">
+                      <Properties>
+                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                          <StringArray count="1">
+                            <StringItem index="0" value="Select A Participant"/>
+                          </StringArray>
+                        </Property>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="combo_participantSelectActionPerformed"/>
+                      </Events>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                      </AuxValues>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="txt_participantID">
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="txt_participantFirstName">
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="txt_participantLastName">
+                    </Component>
+                    <Component class="javax.swing.JComboBox" name="combo_selectDCP">
+                      <Properties>
+                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                          <StringArray count="6">
+                            <StringItem index="0" value="Select DCP"/>
+                            <StringItem index="1" value="-"/>
+                            <StringItem index="2" value="-"/>
+                            <StringItem index="3" value="-"/>
+                            <StringItem index="4" value="-"/>
+                            <StringItem index="5" value="-"/>
+                          </StringArray>
+                        </Property>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                      </AuxValues>
+                    </Component>
+                    <Component class="javax.swing.JCheckBox" name="check_medicaid">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Medicaid"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="check_medicaidActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JCheckBox" name="check_selfPay">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Self-Pay"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="check_selfPayActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JCheckBox" name="check_seizure">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Seizures"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JCheckBox" name="check_bm">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="BM"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lbl_mandatoryForm">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Mandatory Forms"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JCheckBox" name="check_repositioning">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Repositioning Form"/>
+                      </Properties>
+                    </Component>
+                  </SubComponents>
+                </Container>
+                <Component class="javax.swing.JLabel" name="lbl_participantDCP">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Self-Pay"/>
+                    <Property name="text" type="java.lang.String" value="Primary DCP:"/>
                   </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="check_selfPayActionPerformed"/>
-                  </Events>
                 </Component>
-                <Component class="javax.swing.JCheckBox" name="check_seizure">
+                <Component class="javax.swing.JLabel" name="lbl_participantLastName">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Experiences Seizures"/>
+                    <Property name="text" type="java.lang.String" value="Last Name:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lbl_participantFirstName">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="First Name:"/>
+                    <Property name="name" type="java.lang.String" value="" noResource="true"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lbl_participantName">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Participant ID:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lbl_insurance">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Insurance:"/>
                   </Properties>
                 </Component>
               </SubComponents>
             </Container>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JPanel" name="panel_goals">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+              <JTabbedPaneConstraints tabName="Goals">
+                <Property name="tabTitle" type="java.lang.String" value="Goals"/>
+              </JTabbedPaneConstraints>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="275" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="btn_goalAdd" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="btn_goalUpdate" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
+                              <Component id="btn_goalRemove" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="panel_participantGoals" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="278" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                      <Component id="panel_participantGoals" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="btn_goalAdd" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btn_goalUpdate" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btn_goalRemove" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="92" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
             <Container class="javax.swing.JPanel" name="panel_participantGoals">
 
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jScrollPane8" alignment="1" pref="297" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
                               <Component id="jScrollPane7" alignment="1" max="32767" attributes="0"/>
-                              <Group type="102" attributes="0">
+                              <Component id="jScrollPane8" alignment="1" max="32767" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
-                                          <Component id="jComboBox1" min="-2" pref="133" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" attributes="0">
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="lbl_goalDescription" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="lbl_objective" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
+                                      <Component id="lbl_goalDescription" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lbl_objective" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                                  <Component id="lbl_frequency" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jComboBox2" min="-2" pref="84" max="-2" attributes="0"/>
+                                  <EmptySpace pref="53" max="32767" attributes="0"/>
+                                  <Component id="lbl_interval" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="combo_freqWeekMonth" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="jComboBox1" linkSize="16" min="-2" pref="133" max="-2" attributes="0"/>
+                              <Component id="combo_participantSelect1" linkSize="16" min="-2" pref="214" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jComboBox1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="11" max="32767" attributes="0"/>
+                          <Component id="combo_participantSelect1" linkSize="15" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="jComboBox1" linkSize="15" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="combo_freqWeekMonth" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                                  <Component id="jComboBox2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lbl_frequency" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lbl_interval" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="lbl_goalDescription" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="jScrollPane7" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="lbl_objective" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="jScrollPane8" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                          <EmptySpace pref="16" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JComboBox" name="jComboBox1">
-                  <Properties>
-                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="5">
-                        <StringItem index="0" value="Goal 1"/>
-                        <StringItem index="1" value="Goal 2"/>
-                        <StringItem index="2" value="Goal 3"/>
-                        <StringItem index="3" value="Goal 4"/>
-                        <StringItem index="4" value="Goal 5"/>
-                      </StringArray>
-                    </Property>
-                  </Properties>
-                  <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-                  </AuxValues>
-                </Component>
                 <Container class="javax.swing.JScrollPane" name="jScrollPane7">
                   <AuxValues>
                     <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
@@ -822,11 +1061,102 @@
                     <Property name="text" type="java.lang.String" value="Objective:"/>
                   </Properties>
                 </Component>
+                <Component class="javax.swing.JComboBox" name="jComboBox2">
+                  <Properties>
+                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                      <StringArray count="15">
+                        <StringItem index="0" value="1"/>
+                        <StringItem index="1" value="2"/>
+                        <StringItem index="2" value="3"/>
+                        <StringItem index="3" value="4"/>
+                        <StringItem index="4" value="5"/>
+                        <StringItem index="5" value="6"/>
+                        <StringItem index="6" value="7"/>
+                        <StringItem index="7" value="8"/>
+                        <StringItem index="8" value="9"/>
+                        <StringItem index="9" value="10"/>
+                        <StringItem index="10" value="11"/>
+                        <StringItem index="11" value="12"/>
+                        <StringItem index="12" value="13"/>
+                        <StringItem index="13" value="14"/>
+                        <StringItem index="14" value="15"/>
+                      </StringArray>
+                    </Property>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                  </AuxValues>
+                </Component>
+                <Component class="javax.swing.JComboBox" name="combo_freqWeekMonth">
+                  <Properties>
+                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                      <StringArray count="3">
+                        <StringItem index="0" value="Select"/>
+                        <StringItem index="1" value="Week"/>
+                        <StringItem index="2" value="Month"/>
+                      </StringArray>
+                    </Property>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                  </AuxValues>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lbl_frequency">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Frequency:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lbl_interval">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Interval:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JComboBox" name="jComboBox1">
+                  <Properties>
+                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                      <StringArray count="5">
+                        <StringItem index="0" value="Goal 1"/>
+                        <StringItem index="1" value="Goal 2"/>
+                        <StringItem index="2" value="Goal 3"/>
+                        <StringItem index="3" value="Goal 4"/>
+                        <StringItem index="4" value="Goal 5"/>
+                      </StringArray>
+                    </Property>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                  </AuxValues>
+                </Component>
+                <Component class="javax.swing.JComboBox" name="combo_participantSelect1">
+                  <Properties>
+                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                      <StringArray count="1">
+                        <StringItem index="0" value="Select A Participant"/>
+                      </StringArray>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="combo_participantSelect1ActionPerformed"/>
+                  </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                  </AuxValues>
+                </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JLabel" name="lbl_insurance">
+            <Component class="javax.swing.JButton" name="btn_goalAdd">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Insurance:"/>
+                <Property name="text" type="java.lang.String" value="Add"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="btn_goalUpdate">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Update"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="btn_goalRemove">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Remove"/>
               </Properties>
             </Component>
           </SubComponents>
@@ -843,186 +1173,216 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="219" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lbl_userID" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lbl_userPass" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lbl_userFirstName" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lbl_userLastName" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lbl_userLevel" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="txt_userLastName" max="32767" attributes="0"/>
-                                  <Component id="txt_userFirstName" max="32767" attributes="0"/>
-                                  <Component id="combo_selectUser" max="32767" attributes="0"/>
-                                  <Component id="txt_userID" max="32767" attributes="0"/>
-                                  <Component id="txt_userPass" max="32767" attributes="0"/>
-                                  <Component id="combo_userLevel" min="-2" pref="227" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="btn_viewUser" linkSize="13" min="-2" pref="84" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="btn_newUser" linkSize="13" min="-2" pref="84" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="btn_deleteUser" linkSize="13" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="btn_updateUser" linkSize="13" min="-2" pref="84" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace pref="386" max="32767" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace pref="310" max="32767" attributes="0"/>
+                      <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="283" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                      <Component id="combo_selectUser" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txt_userID" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lbl_userID" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lbl_userPass" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txt_userPass" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txt_userFirstName" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lbl_userFirstName" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txt_userLastName" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lbl_userLastName" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lbl_userLevel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="combo_userLevel" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace pref="201" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="btn_newUser" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btn_deleteUser" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btn_updateUser" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btn_viewUser" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                      <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="51" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="btn_newUser">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="New"/>
-                <Property name="toolTipText" type="java.lang.String" value="Create a new user from the attributes you typed."/>
-              </Properties>
-              <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_newUserMouseClicked"/>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_newUserActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JComboBox" name="combo_selectUser">
-              <Properties>
-                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="1">
-                    <StringItem index="0" value="Select User Or Create New"/>
-                  </StringArray>
-                </Property>
-                <Property name="toolTipText" type="java.lang.String" value=""/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="combo_selectUserActionPerformed"/>
-              </Events>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-              </AuxValues>
-            </Component>
-            <Component class="javax.swing.JTextField" name="txt_userID">
-            </Component>
-            <Component class="javax.swing.JLabel" name="lbl_userID">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="User ID:"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="lbl_userPass">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Password:"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="txt_userPass">
-            </Component>
-            <Component class="javax.swing.JTextField" name="txt_userFirstName">
-            </Component>
-            <Component class="javax.swing.JTextField" name="txt_userLastName">
-            </Component>
-            <Component class="javax.swing.JLabel" name="lbl_userFirstName">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="First Name:"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="lbl_userLastName">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Last Name:"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="lbl_userLevel">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="User Level:"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JComboBox" name="combo_userLevel">
-              <Properties>
-                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="5">
-                    <StringItem index="0" value="Select A User Level"/>
-                    <StringItem index="1" value="Admin"/>
-                    <StringItem index="2" value="DCP"/>
-                    <StringItem index="3" value="Reviewer"/>
-                    <StringItem index="4" value="Auditor"/>
-                  </StringArray>
-                </Property>
-              </Properties>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-              </AuxValues>
-            </Component>
-            <Component class="javax.swing.JButton" name="btn_viewUser">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Clear"/>
-                <Property name="toolTipText" type="java.lang.String" value="Display the attributes of the selected user."/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_viewUserActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="btn_deleteUser">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Delete"/>
-                <Property name="toolTipText" type="java.lang.String" value="Delete the selected user."/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_deleteUserActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="btn_updateUser">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Update"/>
-                <Property name="toolTipText" type="java.lang.String" value="Update the properties of the selected user."/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_updateUserActionPerformed"/>
-              </Events>
-            </Component>
+            <Container class="javax.swing.JPanel" name="jPanel4">
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="lbl_userID" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lbl_userPass" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lbl_userLevel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="lbl_userLastName" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lbl_userFirstName" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="txt_userLastName" max="32767" attributes="0"/>
+                                      <Component id="txt_userFirstName" max="32767" attributes="0"/>
+                                      <Component id="combo_selectUser" max="32767" attributes="0"/>
+                                      <Component id="txt_userID" max="32767" attributes="0"/>
+                                      <Component id="txt_userPass" max="32767" attributes="0"/>
+                                      <Component id="combo_userLevel" min="-2" pref="227" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="btn_viewUser" linkSize="13" min="-2" pref="84" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="btn_newUser" linkSize="13" min="-2" pref="84" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="btn_deleteUser" linkSize="13" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="btn_updateUser" linkSize="13" min="-2" pref="84" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                          <Component id="combo_selectUser" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="txt_userID" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lbl_userID" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="txt_userPass" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lbl_userPass" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="txt_userFirstName" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lbl_userFirstName" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="txt_userLastName" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lbl_userLastName" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="combo_userLevel" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lbl_userLevel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace pref="201" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="btn_newUser" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btn_deleteUser" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btn_updateUser" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btn_viewUser" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JComboBox" name="combo_userLevel">
+                  <Properties>
+                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                      <StringArray count="5">
+                        <StringItem index="0" value="Select A User Level"/>
+                        <StringItem index="1" value="Admin"/>
+                        <StringItem index="2" value="DCP"/>
+                        <StringItem index="3" value="Reviewer"/>
+                        <StringItem index="4" value="Auditor"/>
+                      </StringArray>
+                    </Property>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                  </AuxValues>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txt_userLastName">
+                </Component>
+                <Component class="javax.swing.JTextField" name="txt_userFirstName">
+                </Component>
+                <Component class="javax.swing.JTextField" name="txt_userPass">
+                </Component>
+                <Component class="javax.swing.JTextField" name="txt_userID">
+                </Component>
+                <Component class="javax.swing.JComboBox" name="combo_selectUser">
+                  <Properties>
+                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                      <StringArray count="1">
+                        <StringItem index="0" value="Select User Or Create New"/>
+                      </StringArray>
+                    </Property>
+                    <Property name="toolTipText" type="java.lang.String" value=""/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="combo_selectUserActionPerformed"/>
+                  </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                  </AuxValues>
+                </Component>
+                <Component class="javax.swing.JButton" name="btn_updateUser">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Update"/>
+                    <Property name="toolTipText" type="java.lang.String" value="Update the properties of the selected user."/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_updateUserActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="btn_deleteUser">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Delete"/>
+                    <Property name="toolTipText" type="java.lang.String" value="Delete the selected user."/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_deleteUserActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="btn_newUser">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="New"/>
+                    <Property name="toolTipText" type="java.lang.String" value="Create a new user from the attributes you typed."/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_newUserMouseClicked"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_newUserActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lbl_userID">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="User ID:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lbl_userPass">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Password:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lbl_userFirstName">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="First Name:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lbl_userLastName">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Last Name:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lbl_userLevel">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="User Level:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="btn_viewUser">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Clear"/>
+                    <Property name="toolTipText" type="java.lang.String" value="Display the attributes of the selected user."/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_viewUserActionPerformed"/>
+                  </Events>
+                </Component>
+              </SubComponents>
+            </Container>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="panel_noteWriting">
@@ -1743,6 +2103,7 @@
                       <Component id="check_formBloodPressure" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="check_formBowelMovement" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="check_formBodyCheck" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="check_formReposition" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
@@ -1759,6 +2120,8 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="check_formBowelMovement" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
+                          <Component id="check_formReposition" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Component id="check_formIncident" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="check_formSeizure" min="-2" max="-2" attributes="0"/>
@@ -1808,6 +2171,11 @@
                 <Component class="javax.swing.JCheckBox" name="check_formBowelMovement">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="BM"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JCheckBox" name="check_formReposition">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Repositioning"/>
                   </Properties>
                 </Component>
               </SubComponents>
@@ -2158,7 +2526,7 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jScrollPane10" alignment="0" min="-2" pref="285" max="-2" attributes="0"/>
@@ -2166,6 +2534,13 @@
                       </Group>
                       <EmptySpace pref="14" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="btn_rejectTime" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                              <Component id="btn_editTime" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="btn_approveTime" min="-2" max="-2" attributes="0"/>
+                          </Group>
                           <Component id="jScrollPane11" alignment="0" min="-2" pref="648" max="-2" attributes="0"/>
                           <Component id="lbl_noteLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -2182,11 +2557,17 @@
                           <Component id="lbl_noteLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jScrollPane11" alignment="0" min="-2" pref="506" max="-2" attributes="0"/>
-                          <Component id="jScrollPane10" alignment="0" min="-2" pref="506" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="jScrollPane11" max="32767" attributes="0"/>
+                          <Component id="jScrollPane10" pref="415" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="btn_approveTime" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btn_rejectTime" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btn_editTime" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -2297,6 +2678,27 @@
             <Component class="javax.swing.JLabel" name="lbl_noteLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Note:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="btn_rejectTime">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Reject"/>
+                <Property name="toolTipText" type="java.lang.String" value="Reject the note."/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_rejectTimeMouseClicked"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="btn_editTime">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Edit"/>
+                <Property name="toolTipText" type="java.lang.String" value="Add the comments you&apos;ve written below to the accepted or rejected note."/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="btn_approveTime">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Approve"/>
+                <Property name="toolTipText" type="java.lang.String" value="Approve of the note."/>
               </Properties>
             </Component>
           </SubComponents>

@@ -76,4 +76,35 @@ public class ParticipantDBConnect {
             return participantList;
         }
     }
+    public void updateParticipant(ParticipantLogic object) throws SQLException, ClassNotFoundException{
+        String sql = "update participant set Firstname = ?, Lastname = ?, Insurance = ?, MedicaidNumber = ? where ParticipantID = ?";
+        Class.forName(driver);
+        try(Connection connect = DriverManager.getConnection(database)){
+            PreparedStatement prepared = connect.prepareStatement(sql);
+            prepared.setString(1, object.getParticipantFirstName());
+            prepared.setString(2, object.getParticipantLastName());
+            prepared.setString(3, object.getInsurance());
+            prepared.setString(4, object.getMedicaidNumber());
+            prepared.setInt(5,object.getParticipantID());
+            prepared.execute();
+        }
+            
+    }
+    public ParticipantLogic selectParticipant(ParticipantLogic object) throws SQLException, ClassNotFoundException{
+        ParticipantLogic pl = object;
+        //System.out.println(pl.getParticipantID());
+        String sql = "select * from Participant where ParticipantID = ?";
+        Class.forName(driver);
+        try(Connection connect = DriverManager.getConnection(database)){
+            PreparedStatement prepared = connect.prepareStatement(sql);
+            prepared.setInt(1, pl.getParticipantID());
+            ResultSet result = prepared.executeQuery();
+            result.next();
+            pl.setParticipantFirstName(result.getString(2));
+            pl.setParticipantLastName(result.getString(3));
+            pl.setInsurance(result.getString(4));
+            pl.setMedicaidNumber(result.getString(5));
+        }
+        return pl;
+    }
 }

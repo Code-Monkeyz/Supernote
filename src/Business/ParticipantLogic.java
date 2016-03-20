@@ -115,4 +115,19 @@ public class ParticipantLogic {
         ArrayList<ParticipantLogic> participants = ParticipantDBConnect.selectAllParticipants();
         return participants;
     }
+    public ParticipantLogic select(int num) throws SQLException, ClassNotFoundException{
+        ParticipantLogic pl = new ParticipantLogic();
+        pl.setParticipantID(num);
+        return pdb.selectParticipant(pl);
+    }
+    public void updateParticipant(String medicaid, String firstname, String lastname, String insurance, int ID) throws SQLException, ClassNotFoundException{
+        ParticipantLogic object = new ParticipantLogic();
+        object = object.select(ID);
+        object.setInsurance(insurance);
+        object.setMedicaidNumber(medicaid);
+        object.setParticipantFirstName(firstname);
+        object.setParticipantLastName(lastname);
+        object.setParticipantID(participantID);
+        pdb.updateParticipant(object);
+    }
 }
