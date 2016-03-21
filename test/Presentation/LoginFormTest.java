@@ -1,7 +1,7 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * LoginFormTest 
+ * Code Monkeys code redone as of march 21
+ * CIST 2931
  */
 package Presentation;
 
@@ -61,7 +61,7 @@ public class LoginFormTest {
         String[] args = null;
         LoginForm.main(args);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
     
 }

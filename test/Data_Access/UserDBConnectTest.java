@@ -1,10 +1,12 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * UserDBConnectTest
+ * Re-done on March 21 2016
+ * Code Monkeys
+ * CIST 2931 for the DeRichie Group
  */
 package Data_Access;
 
+import Business.UserLogic;
 import java.util.ArrayList;
 import java.util.Arrays;
 import org.junit.After;
@@ -44,12 +46,25 @@ public class UserDBConnectTest {
      */
     @Test
     public void testLogin() throws Exception {
+        
+        UserLogic ul = new UserLogic();
+        
+        
         System.out.println("login");
-        String userName = "bonnief";
+        String userName = "Admin";
+        ul.setUsername(userName);
         UserDBConnect instance = new UserDBConnect();
-        String expResult = "bonnief-pass";
-        String result = instance.login(userName);
+        //String expResult = "bonnief-pass";
+       // String expResult = "John-Admin";
+        UserLogic newObject = instance.login(ul);
+        //Object expResult = ul;
+        
+        
+        String result = newObject.getUsername() + newObject.getPassword();
+        String expResult = "Adminpassword";
         assertEquals(expResult, result);
+        System.out.println("Result: " + result);
+        System.out.println("Exp : " + expResult);
         // TODO review the generated test code and remove the default call to fail.
        // fail("The test case is a prototype.");
     }
@@ -66,7 +81,8 @@ public class UserDBConnectTest {
         
         ArrayList<String> expResult = null;
         
-        String[] expResultArray = new String[]{"Amy", "mary", "bonnief", "Wendyh", "Sami", "Davidr"};
+        String[] expResultArray = new String[]{"Admin", "Lucy" };
+       // String[] expResultArray = new String[]{"Amy", "mary", "bonnief", "Wendyh", "Davidr", "Sami" };//this was the old one
         ArrayList<String> result = UserDBConnect.populateUser();
         Object[] resultArray = result.toArray();
         
@@ -82,12 +98,14 @@ public class UserDBConnectTest {
      */
     @Test
     public void testUserSelect() throws Exception {
-        System.out.println("UserSelect");
-        String name = "Amy";
+        System.out.println("userSelect");
+        String name = "Lucy";
+        UserLogic ul = new UserLogic();
+        ul.setUsername(name);
         UserDBConnect instance = new UserDBConnect();
-        String expResult = "2-Amy-happy-Amy-Kaye-0";
-        String result = instance.UserSelect(name);
-        assertEquals(expResult, result);
+        String expResult = "Ricardo";
+        UserLogic result = (UserLogic) instance.userSelect(ul);
+        assertEquals(expResult, result.getLastName() );
         // TODO review the generated test code and remove the default call to fail.
        // fail("The test case is a prototype.");
     }
@@ -127,6 +145,7 @@ public class UserDBConnectTest {
      */
     @Test
     public void testUpdate() throws Exception {
+        UserLogic ul = new UserLogic();
         System.out.println("update");
         String newUsername = "";
         String password = "";
@@ -135,7 +154,7 @@ public class UserDBConnectTest {
         int clearance = 0;
         String oldUsername = "";
         UserDBConnect instance = new UserDBConnect();
-        instance.update(newUsername, password, firstName, lastName, clearance, oldUsername);
+        instance.update(ul);
         // TODO review the generated test code and remove the default call to fail.
        //fail("The test case is a prototype.");
     }

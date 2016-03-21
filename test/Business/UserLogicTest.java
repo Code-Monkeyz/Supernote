@@ -1,7 +1,7 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * UserLogicTest 
+ * Code Monkeys code redone on March 16
+ * CIST 2931
  */
 package Business;
 
@@ -14,7 +14,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author Triston_Gregoire
+ * @author Bonnie
  */
 public class UserLogicTest {
     
@@ -45,10 +45,11 @@ public class UserLogicTest {
         System.out.println("getUsername");
         UserLogic instance = new UserLogic();
         String expResult = "";
+        instance.setUsername(expResult);
         String result = instance.getUsername();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -61,7 +62,7 @@ public class UserLogicTest {
         UserLogic instance = new UserLogic();
         instance.setUsername(username);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -71,11 +72,12 @@ public class UserLogicTest {
     public void testGetOldUserName() {
         System.out.println("getOldUserName");
         UserLogic instance = new UserLogic();
-        String expResult = "";
+        String expResult = "Lucy";
+        instance.setOldUserName("Lucy");
         String result = instance.getOldUserName();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -88,7 +90,7 @@ public class UserLogicTest {
         UserLogic instance = new UserLogic();
         instance.setOldUserName(oldUserName);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -98,11 +100,12 @@ public class UserLogicTest {
     public void testGetPassword() {
         System.out.println("getPassword");
         UserLogic instance = new UserLogic();
+        instance.setPassword("");
         String expResult = "";
         String result = instance.getPassword();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -115,7 +118,7 @@ public class UserLogicTest {
         UserLogic instance = new UserLogic();
         instance.setPassword(password);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+       //fail("The test case is a prototype.");
     }
 
     /**
@@ -124,12 +127,14 @@ public class UserLogicTest {
     @Test
     public void testGetOldPassowrd() {
         System.out.println("getOldPassowrd");
+        String password="";
         UserLogic instance = new UserLogic();
+        instance.setOldPassowrd("");
         String expResult = "";
         String result = instance.getOldPassowrd();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+       //fail("The test case is a prototype.");
     }
 
     /**
@@ -142,7 +147,7 @@ public class UserLogicTest {
         UserLogic instance = new UserLogic();
         instance.setOldPassowrd(oldPassowrd);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -152,11 +157,12 @@ public class UserLogicTest {
     public void testGetFirstName() {
         System.out.println("getFirstName");
         UserLogic instance = new UserLogic();
-        String expResult = "";
+        instance.setFirstName("Lucy");
+        String expResult = "Lucy";
         String result = instance.getFirstName();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+       // fail("The test case is a prototype.");
     }
 
     /**
@@ -169,7 +175,7 @@ public class UserLogicTest {
         UserLogic instance = new UserLogic();
         instance.setFirstName(firstName);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -179,11 +185,12 @@ public class UserLogicTest {
     public void testGetLastName() {
         System.out.println("getLastName");
         UserLogic instance = new UserLogic();
-        String expResult = "";
+        String expResult = ("");
+        instance.setLastName("");
         String result = instance.getLastName();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+       // fail("The test case is a prototype.");
     }
 
     /**
@@ -196,7 +203,7 @@ public class UserLogicTest {
         UserLogic instance = new UserLogic();
         instance.setLastName(lastName);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+       // fail("The test case is a prototype.");
     }
 
     /**
@@ -207,10 +214,11 @@ public class UserLogicTest {
         System.out.println("getClearance");
         UserLogic instance = new UserLogic();
         int expResult = 0;
+        instance.setClearance(0);
         int result = instance.getClearance();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+      // fail("The test case is a prototype.");
     }
 
     /**
@@ -223,7 +231,7 @@ public class UserLogicTest {
         UserLogic instance = new UserLogic();
         instance.setClearance(clearance);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+       // fail("The test case is a prototype.");
     }
 
     /**
@@ -232,14 +240,15 @@ public class UserLogicTest {
     @Test
     public void testIsValid() throws Exception {
         System.out.println("isValid");
-        String username = "";
-        String password = "";
+        String username = "Lucy";
+        String password = "pass";
         UserLogic instance = new UserLogic();
-        boolean expResult = false;
+       // boolean expResult = false;
+        boolean expResult = true;
         boolean result = instance.isValid(username, password);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+       // fail("The test case is a prototype.");
     }
 
     /**
@@ -252,7 +261,7 @@ public class UserLogicTest {
         UserLogic instance = new UserLogic();
         instance.select(username);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+       // fail("The test case is a prototype.");
     }
 
     /**
@@ -261,15 +270,15 @@ public class UserLogicTest {
     @Test
     public void testInsertUser() throws Exception {
         System.out.println("insertUser");
-        String username = "";
-        String password = "";
-        String firstName = "";
-        String lastName = "";
-        Object clearance = null;
+        String username = "Lucy";
+        String password = "pass";
+        String firstName = "Lucy";
+        String lastName = "Ricardo";
+        Object clearance = "1";
         UserLogic instance = new UserLogic();
         instance.insertUser(username, password, firstName, lastName, clearance);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+       // fail("The test case is a prototype.");
     }
 
     /**
@@ -281,7 +290,7 @@ public class UserLogicTest {
         UserLogic instance = new UserLogic();
         instance.updateUser();
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -290,13 +299,13 @@ public class UserLogicTest {
     @Test
     public void testClearanceCheck_String() {
         System.out.println("clearanceCheck");
-        String clearance = "";
+        String clearance = "Admin";
         UserLogic instance = new UserLogic();
         int expResult = 0;
         int result = instance.clearanceCheck(clearance);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+       // fail("The test case is a prototype.");
     }
 
     /**
@@ -307,11 +316,11 @@ public class UserLogicTest {
         System.out.println("clearanceCheck");
         int clearance = 0;
         UserLogic instance = new UserLogic();
-        String expResult = "";
+        String expResult = "Admin";
         String result = instance.clearanceCheck(clearance);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
     
 }

@@ -20,6 +20,7 @@ import java.util.logging.Logger;
  * @author taylorsmith
  */
 public class AdminForm extends javax.swing.JFrame {
+    String currentGoalParticipant = null;
 
     /**
      *
@@ -43,6 +44,7 @@ public class AdminForm extends javax.swing.JFrame {
             dialog_submitNote.setLocationRelativeTo(null);
             UserDBConnect uc = new UserDBConnect();
         try {
+            
             populateComboParticipant(pl.populate());
             populateComboSelectUser(UserDBConnect.populateUser());
         } catch (SQLException ex) {
@@ -2093,12 +2095,15 @@ public class AdminForm extends javax.swing.JFrame {
      */
     public void populateComboParticipant(ArrayList<ParticipantLogic> list){
         combo_participantSelect.removeAllItems();
+        combo_participantSelect1.removeAllItems();
         combo_participantSelect.addItem("Select A Participant");
+        combo_participantSelect1.addItem("Select A Participant");
         String participantInfo;
         System.out.println(list.size());
         for(int i = 0; i < list.size(); i++){
             participantInfo = list.get(i).getParticipantID() + ": "+ list.get(i).getParticipantFirstName() + list.get(i).getParticipantLastName();
             combo_participantSelect.addItem(participantInfo);
+            combo_participantSelect1.addItem(participantInfo);
         }
     }
 
